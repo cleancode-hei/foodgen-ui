@@ -38,3 +38,10 @@ export const whoami = async (token: string) => {
     Auth(token),
   ).then((res) => res.data);
 };
+
+export const getUserByUserName = async (token: string, username: string) => {
+  return await InstanceAxiosUrl.get<Objectwhoami>(
+    `/users/${username}`,
+    Auth(token),
+  ).then((res) => res.data);
+};
