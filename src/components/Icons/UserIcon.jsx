@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import React from "react";
 
-export function UserIcon({className}) {
+export function UserIcon({ className }) {
   return (
     <svg
       className={`h-10 w-10 rounded-full ${styles["on-hover"]} ${className}`}

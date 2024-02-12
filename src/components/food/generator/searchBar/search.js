@@ -1,30 +1,24 @@
-"use client"
-import React from 'react';
+"use client";
+import React from "react";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selectedNames, setSelectedNames] = useState([]);
 
-  const data = [
-    "John",
-    "Jane",
-    "Michael",
-    "Sarah",
-    "David"
-  ];
+  const data = ["John", "Jane", "Michael", "Sarah", "David"];
 
   const handleSearch = (event) => {
     const term = event.target.value;
     setSearchTerm(term);
 
-    if (term === '') {
+    if (term === "") {
       setSuggestions([]);
     } else {
       const filteredSuggestions = data.filter((nom) =>
-        nom.toLowerCase().includes(term.toLowerCase())
+        nom.toLowerCase().includes(term.toLowerCase()),
       );
       setSuggestions(filteredSuggestions);
     }
@@ -35,7 +29,9 @@ export default function Home() {
   };
 
   const removeFromCart = (name) => {
-    const updatedNames = selectedNames.filter((selectedName) => selectedName !== name);
+    const updatedNames = selectedNames.filter(
+      (selectedName) => selectedName !== name,
+    );
     setSelectedNames(updatedNames);
   };
 
@@ -51,7 +47,10 @@ export default function Home() {
       {suggestions.length > 0 && (
         <ul className="absolute left-0 right-0 z-10 bg-white border border-gray-300 rounded">
           {suggestions.map((suggestion, index) => (
-            <li key={index} className="flex justify-between items-center py-2 px-4">
+            <li
+              key={index}
+              className="flex justify-between items-center py-2 px-4"
+            >
               <span>{suggestion}</span>
               <button
                 onClick={() => addToCart(suggestion)}

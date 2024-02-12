@@ -11,12 +11,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-
     <IsAuthenticated>
       <ContextProvider>
         <FoodModal />
         {children}
       </ContextProvider>
-      </IsAuthenticated>
+    </IsAuthenticated>
   );
 }

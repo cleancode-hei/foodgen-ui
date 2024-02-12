@@ -1,0 +1,114 @@
+[
+  {
+    "name": "American",
+    "id": "3cafb606-ff11-4ffb-adc0-ef1f8d2d8e76"
+  },
+  {
+    "name": "British",
+    "id": "ba057c7b-db45-4361-8abb-81723238b653"
+  },
+  {
+    "name": "Canadian",
+    "id": "c05f2773-b939-475f-a366-2ae125c54787"
+  },
+  {
+    "name": "Chinese",
+    "id": "ab4067fd-dfcf-4117-a4cb-cda5d96930fb"
+  },
+  {
+    "name": "Croatian",
+    "id": "20e9580c-76cd-4a1f-8471-bb3cc6e348b2"
+  },
+  {
+    "name": "Dutch",
+    "id": "20dc2c5a-41d4-43d0-91c0-35bdb363d06d"
+  },
+  {
+    "name": "Egyptian",
+    "id": "1bf23b1b-b6d3-46ce-9647-5a5dd51787de"
+  },
+  {
+    "name": "Filipino",
+    "id": "0898f062-29e7-4b6a-9c53-6a7e55567ea1"
+  },
+  {
+    "name": "French",
+    "id": "6e068c56-a212-41a4-8149-1549e2c29a0d"
+  },
+  {
+    "name": "Greek",
+    "id": "5d5769ee-2a0e-4de6-bad7-ebefe1a02127"
+  },
+  {
+    "name": "Indian",
+    "id": "1a5a229d-2413-4a6a-a7a4-57c92c35e038"
+  },
+  {
+    "name": "Irish",
+    "id": "cd62042c-7837-4cf0-b300-7e2346191333"
+  },
+  {
+    "name": "Italian",
+    "id": "b28c39d6-9dc8-4236-8fa4-02c5e094b6be"
+  },
+  {
+    "name": "Jamaican",
+    "id": "891d480e-7bd3-4c68-b20e-904b2f7e87d9"
+  },
+  {
+    "name": "Japanese",
+    "id": "cac406be-59e2-42e1-9164-f917f644885d"
+  },
+  {
+    "name": "Kenyan",
+    "id": "1a02f484-d456-4992-9dea-d56bf569a7cd"
+  },
+  {
+    "name": "Malaysian",
+    "id": "7dc2df1b-1d75-4ddb-80a8-eef1a507837f"
+  },
+  {
+    "name": "Mexican",
+    "id": "27008f56-f967-4163-9a1a-875c54e6bee0"
+  },
+  {
+    "name": "Moroccan",
+    "id": "6f39ad7a-fbe8-47f5-8649-a6435eafb6d3"
+  },
+  {
+    "name": "Polish",
+    "id": "3e7552bc-697d-4706-8c94-48d567f959e1"
+  },
+  {
+    "name": "Portuguese",
+    "id": "eba896ff-6d96-4d01-b6b5-2910d8246f92"
+  },
+  {
+    "name": "Russian",
+    "id": "c0a791a3-6230-4dc7-b48a-1d8ab3d3c85f"
+  },
+  {
+    "name": "Spanish",
+    "id": "79911a32-d5c1-45f7-a6b1-d8fc1c5af1a6"
+  },
+  {
+    "name": "Thai",
+    "id": "e62c187f-9c1f-4a72-930a-ee0273dbdd78"
+  },
+  {
+    "name": "Tunisian",
+    "id": "a72221ba-d703-47cb-93fc-1e0798fb1e0b"
+  },
+  {
+    "name": "Turkish",
+    "id": "b52a9228-2663-4ab4-92ac-f46e8daa469e"
+  },
+  {
+    "name": "Unknown",
+    "id": "1f994127-1817-4886-b563-8ddbfee6a8bc"
+  },
+  {
+    "name": "Vietnamese",
+    "id": "bf152c3e-e688-46eb-b4c2-17666618e8c8"
+  }
+]

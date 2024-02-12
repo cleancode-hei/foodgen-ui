@@ -1,8 +1,9 @@
-import React from "react"
+import React from "react";
 
-export default function LogoutIcon({className}) {
-  return(
-    <svg class={`"h-5 w-5 text-[--color-two] ${className}`}
+export default function LogoutIcon({ className }) {
+  return (
+    <svg
+      class={`"h-5 w-5 text-[--color-two] ${className}`}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -14,5 +15,5 @@ export default function LogoutIcon({className}) {
       <polyline points="16 17 21 12 16 7" />
       <line x1="21" y1="12" x2="9" y2="12" />
     </svg>
-  )
+  );
 }
