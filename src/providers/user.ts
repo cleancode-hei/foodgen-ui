@@ -32,6 +32,18 @@ export const loginUser = async (userLogin: UserLogin) => {
   );
 };
 
+export const singupUser = async (user: CreatePayload) => {
+  return await InstanceAxiosUrl.post<String>("/users/singup", user).then(
+    (res) => res.data,
+  );
+};
+
+export const logoutUser = async (token: string) => {
+  return await InstanceAxiosUrl.get<String>("/users/logout", Auth(token)).then(
+    (res) => res.data,
+  );
+};
+
 export const whoami = async (token: string) => {
   return await InstanceAxiosUrl.get<Objectwhoami>(
     "/users/whoami",
