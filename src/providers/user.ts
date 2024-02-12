@@ -1,10 +1,6 @@
 import { InstanceAxiosUrl } from "./axios";
 import { User } from "@/types/user";
-export const Auth = (token: string): {} => ({
-  headers: {
-    Authorization: "Bearer " + token,
-  },
-});
+import { Auth } from "@/types/auth";
 
 type Role = "USER" | "ADMIN";
 
