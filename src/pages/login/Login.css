@@ -1,0 +1,60 @@
+._fst{
+    border: solid 1px;
+}
+._form_bg{
+    background-color: rgba(46, 87, 37, 0.474);
+}
+._inputStyle{
+    outline: none;
+    background-color: rgba(210, 221, 218, 0.257);
+    background-color: #fff;
+    color: rgb(246, 242, 242);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+._inputStyle::placeholder{
+    color: rgba(240, 248, 255, 0.413);
+    font-family: cursive;
+    font-weight: 50;
+}
+
+._btn:hover{
+    color: aliceblue;
+}
+._btn{
+    background-color:  rgb(36, 187, 25);
+    width: 70%;
+    height: 5.5vh;
+    text-align: center;
+   
+    border-radius: 10px;
+    color:rgba(240, 248, 255, 0.73);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; 
+
+    transform: translateX(25%);
+    margin-bottom: 20px;
+  
+    
+}
+._loginTitle{
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+    font-family: cursive;
+}
+._link_{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+._bodyContainer{
+    height:95vh;   
+}
+.logo_login{
+    margin-bottom: -10%;
+  }

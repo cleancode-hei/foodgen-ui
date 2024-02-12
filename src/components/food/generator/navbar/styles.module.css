@@ -1,0 +1,5 @@
+.custom-block {
+  transform: skew(-20deg);
+  left: -20px;
+  width: 150px;
+}
