@@ -17,25 +17,25 @@ export type UserLogin = {
 };
 
 export const createUsers = async (userCreate: CreatePayload) => {
-  return await InstanceAxiosUrl.put<Object>("/users", userCreate).then(
+  return await InstanceAxiosUrl.put<User>("/users", userCreate).then(
     (res) => res.data,
   );
 };
 
 export const loginUser = async (userLogin: UserLogin) => {
-  return await InstanceAxiosUrl.post<String>("/users/login", userLogin).then(
+  return await InstanceAxiosUrl.post<string>("/users/login", userLogin).then(
     (res) => res.data,
   );
 };
 
 export const singupUser = async (user: CreatePayload) => {
-  return await InstanceAxiosUrl.post<String>("/users/singup", user).then(
+  return await InstanceAxiosUrl.post<string>("/users/singup", user).then(
     (res) => res.data,
   );
 };
 
 export const logoutUser = async (token: string) => {
-  return await InstanceAxiosUrl.get<String>("/users/logout", Auth(token)).then(
+  return await InstanceAxiosUrl.get<string>("/users/logout", Auth(token)).then(
     (res) => res.data,
   );
 };
