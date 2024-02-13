@@ -1,6 +1,6 @@
 import { InstanceAxiosUrl } from "./axios";
 import { Meal } from "@/types/meal";
-import { Auth } from "@/types/auth";
+import { Auth } from "@/types";
 
 export const getMealRandom = async (token: string) => {
   return await InstanceAxiosUrl.get<Meal[]>("/meals", Auth(token)).then(

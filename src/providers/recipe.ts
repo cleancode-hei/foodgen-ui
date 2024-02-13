@@ -1,6 +1,6 @@
 import { InstanceAxiosUrl } from "./axios";
 import { Recipe } from "@/types/recipe";
-import { Auth } from "@/types/auth";
+import { Auth } from "@/types";
 
 export type ObjectReturnRecipe = Omit<Recipe, "id">;
 export const getAllRecipe = async (
