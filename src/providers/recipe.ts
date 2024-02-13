@@ -13,3 +13,14 @@ export const getAllRecipe = async (
     Auth(token),
   ).then((res) => res.data);
 };
+
+export const createRecipe = async (
+  token: string,
+  recipePayload: ObjectReturnRecipe,
+) => {
+  return await InstanceAxiosUrl.put<Recipe[]>(
+    "/recipes",
+    recipePayload,
+    Auth(token),
+  ).then((res) => res.data);
+};
