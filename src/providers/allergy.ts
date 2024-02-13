@@ -14,3 +14,15 @@ export const getAllAllergy = async (
     Auth(token),
   ).then((res) => res.data);
 };
+
+("TODO: request body no defined");
+export const createAllergy = async (
+  token: string,
+  allergyPayload: ObjectReturnAllergy,
+) => {
+  return await InstanceAxiosUrl.put<Allergy[]>(
+    "/allergy",
+    allergyPayload,
+    Auth(token),
+  ).then((res) => res.data);
+};
