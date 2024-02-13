@@ -19,3 +19,8 @@ export const createRegion = async (token: string, name: string) => {
     Auth(token),
   ).then((res) => res.data);
 };
+export const getRegionByid = async (token: string, id: number) => {
+  return await InstanceAxiosUrl.get<Region>(`/regions/${id}`, Auth(token)).then(
+    (res) => res.data,
+  );
+};
