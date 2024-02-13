@@ -12,3 +12,10 @@ export const getAllRegions = async (
     Auth(token),
   ).then((res) => res.data);
 };
+export const createRegion = async (token: string, name: string) => {
+  return await InstanceAxiosUrl.put<Region[]>(
+    "/regions",
+    name,
+    Auth(token),
+  ).then((res) => res.data);
+};
