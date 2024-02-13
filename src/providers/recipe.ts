@@ -24,3 +24,9 @@ export const createRecipe = async (
     Auth(token),
   ).then((res) => res.data);
 };
+
+export const getRecipeByid = async (token: string, id: number) => {
+  return await InstanceAxiosUrl.get<Recipe>(`/recipes/${id}`, Auth(token)).then(
+    (res) => res.data,
+  );
+};
