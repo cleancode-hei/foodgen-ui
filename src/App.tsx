@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Home, Login, SignUp } from "./pages";
 import { AuthWrapper, PrivateWrapper } from "./components";
+import { RandomeMealsPage } from "./pages/random-meals";
 
 function App() {
   return (
@@ -21,6 +22,14 @@ function App() {
         element={
           <PrivateWrapper>
             <SignUp />
+          </PrivateWrapper>
+        }
+      />
+      <Route
+        path="/random"
+        element={
+          <PrivateWrapper redirectPath="/login">
+            <RandomeMealsPage />
           </PrivateWrapper>
         }
       />
