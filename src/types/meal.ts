@@ -1,7 +1,7 @@
 import { Recipe } from "./recipe";
 import { Region } from "./region";
 
-export type User = {
+export type Meal = {
   name: string;
   image: string;
   id: string;
