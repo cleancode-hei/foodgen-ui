@@ -20,7 +20,7 @@ export const getMealByRating = async (
 };
 
 export const getMealByid = async (token: string, id: number) => {
-  return await InstanceAxiosUrl.get<Meal[]>(`/meals/${id}`, Auth(token)).then(
+  return await InstanceAxiosUrl.get<Meal>(`/meals/${id}`, Auth(token)).then(
     (res) => res.data,
   );
 };
