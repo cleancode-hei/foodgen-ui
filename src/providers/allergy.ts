@@ -26,3 +26,10 @@ export const createAllergy = async (
     Auth(token),
   ).then((res) => res.data);
 };
+
+export const getAllergyByid = async (token: string, id: number) => {
+  return await InstanceAxiosUrl.get<Allergy>(
+    `/allergy/${id}`,
+    Auth(token),
+  ).then((res) => res.data);
+};
