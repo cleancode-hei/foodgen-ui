@@ -25,3 +25,10 @@ export const createIngredient = async (
     Auth(token),
   ).then((res) => res.data);
 };
+
+export const getIngredientByid = async (token: string, id: number) => {
+  return await InstanceAxiosUrl.get<Ingredient>(
+    `/ingredients/${id}`,
+    Auth(token),
+  ).then((res) => res.data);
+};
