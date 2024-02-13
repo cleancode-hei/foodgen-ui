@@ -24,3 +24,8 @@ export const getRegionByid = async (token: string, id: number) => {
     (res) => res.data,
   );
 };
+export const deleteRegionById = async (token: string, id: number) => {
+  return await InstanceAxiosUrl.get<string>(`/regions/${id}`, Auth(token)).then(
+    (res) => res.data,
+  );
+};
