@@ -14,3 +14,14 @@ export const getAllIngredient = async (
     Auth(token),
   ).then((res) => res.data);
 };
+
+export const createIngredient = async (
+  token: string,
+  ingredientPayload: ObjectReturnIngredient,
+) => {
+  return await InstanceAxiosUrl.put<Ingredient[]>(
+    "/ingredients",
+    ingredientPayload,
+    Auth(token),
+  ).then((res) => res.data);
+};
