@@ -1,32 +1,47 @@
+import { Bearer, Provider, Resource } from "@/types";
 import { InstanceAxiosUrl } from "./axios";
 import { Recipe } from "@/types/recipe";
-import { Auth } from "@/types";
 
 export type ObjectReturnRecipe = Omit<Recipe, "id">;
-export const getAllRecipe = async (
-  token: string,
-  page: number,
-  page_size: number,
-) => {
-  return await InstanceAxiosUrl.get<Recipe[]>(
-    `/recipes?page=${page}&page_size${page_size}`,
-    Auth(token),
-  ).then((res) => res.data);
+export type PayloadRecipe = {
+  name: string;
+  readme: string;
 };
+export type ListPayloadRicipe = PayloadRecipe[];
 
-export const createRecipe = async (
-  token: string,
-  recipePayload: ObjectReturnRecipe,
-) => {
-  return await InstanceAxiosUrl.put<Recipe[]>(
-    "/recipes",
-    recipePayload,
-    Auth(token),
-  ).then((res) => res.data);
-};
+export const recipeProvider: Provider<ListPayloadRicipe, Recipe[], Recipe[]> = {
+  findMany: async function (params: {
+    token: string;
+    page: number;
+    page_size: number;
+  }): Promise<Recipe[]> {
+    const { token, page, page_size } = params;
+    const response = await InstanceAxiosUrl.get<Recipe[]>(
+      `/recipes?page=${page}&page_size=${page_size}`,
+      Bearer(token),
+    );
+    return response.data;
+  },
+  save: async function (
+    resource: Resource<ListPayloadRicipe>,
+  ): Promise<Recipe[]> {
+    const { token, payload } = resource;
+    const response = await InstanceAxiosUrl.put<Recipe[]>(
+      "/recipes",
+      payload,
+      Bearer(token),
+    );
+    return response.data;
+  },
 
-export const getRecipeByid = async (token: string, id: number) => {
-  return await InstanceAxiosUrl.get<Recipe>(`/recipes/${id}`, Auth(token)).then(
-    (res) => res.data,
-  );
+  findOne: async function (params: {
+    token: string;
+    id: string;
+  }): Promise<Recipe[]> {
+    const { token, id } = params;
+    return await InstanceAxiosUrl.get<Recipe[]>(
+      `/recipes/${id}`,
+      Bearer(token),
+    ).then((res) => res.data);
+  },
 };
