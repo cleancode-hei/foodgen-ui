@@ -1,10 +1,14 @@
-import { Provider } from "@/types";
+import { Provider, Resource } from "@/types";
 import { InstanceAxiosUrl } from "./axios";
 import { Allergy } from "@/types/allergy";
 import { Bearer } from "@/types";
-export type ObjectReturnAllergy = Omit<Allergy, "id">;
 
-export const allergyProvider: Provider = {
+export type Response = {
+  id: string;
+  ingredient_name: string;
+};
+
+export const allergyProvider: Provider<string, Response> = {
   findMany: async function (params: {
     token: string;
     page: number;
@@ -16,13 +20,10 @@ export const allergyProvider: Provider = {
       Bearer(token),
     );
     return response.data;
-  }, // Une fonction pour créer une nouvelle allergie
-  save: async function (resource: {
-    token: string;
-    payload: ObjectReturnAllergy;
-  }): Promise<Allergy> {
+  },
+  save: async function (resource: Resource<string>): Promise<Response> {
     const { token, payload } = resource;
-    const response = await InstanceAxiosUrl.post<Allergy>(
+    const response = await InstanceAxiosUrl.put<Response>(
       "/allergy",
       payload,
       Bearer(token),
