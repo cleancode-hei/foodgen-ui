@@ -22,6 +22,7 @@ export type Provider<T, R, P> = {
   updateMany?: (resources: Resource<T>) => Promise<R>;
   delete?: (params: Params) => Promise<string>;
   deleteMany?: (resources: Resource<T>) => Promise<string>;
-  login?: (auth: Auth) => Promise<R>;
-  logout?: () => Promise<R>;
+  login?: (auth: Auth) => Promise<void>;
+  logout?: () => Promise<void>;
+  signup?: (auth: Auth) => Promise<void>;
 };
