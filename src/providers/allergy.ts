@@ -1,6 +1,5 @@
 import { Provider, Resource } from "@/types";
 import { InstanceAxiosUrl } from "./axios";
-import { Allergy } from "@/types/allergy";
 import { Bearer } from "@/types";
 
 export type Response = {
@@ -33,7 +32,7 @@ export const allergyProvider: Provider<string, Response, Response[]> = {
 
   findOne: async function (params: {
     token: string;
-    id: number;
+    id: string;
   }): Promise<Response[]> {
     const { token, id } = params;
     return await InstanceAxiosUrl.get<Response[]>(
