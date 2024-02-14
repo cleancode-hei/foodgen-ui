@@ -1,4 +1,4 @@
-export const Auth = (
+export const Bearer = (
   token: string,
 ): { headers: { Authorization: string } } => ({
   headers: {

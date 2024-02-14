@@ -1,55 +1,62 @@
 import { InstanceAxiosUrl } from "./axios";
-import { User } from "@/types/user";
-import { Auth } from "@/types/auth";
+import { Bearer, Provider, Resource } from "@/types";
 
-type Role = "USER" | "ADMIN";
-
-export type Object = User;
-
-export type Objectwhoami = User & {
-  role: Role;
+export type CreatePayload = {
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
 };
-export type CreatePayload = Omit<User, "id">;
+export type ListCreatePayload = CreatePayload[];
+export type ResponseOfUserCreate = {
+  id: string;
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+};
 
 export type UserLogin = {
   email: string;
   password: string;
 };
 
-export const createUsers = async (userCreate: CreatePayload) => {
-  return await InstanceAxiosUrl.put<User>("/users", userCreate).then(
-    (res) => res.data,
-  );
-};
+export const userProvider: Provider<
+  ListCreatePayload,
+  ResponseOfUserCreate,
+  ResponseOfUserCreate
+> = {
+  findMany: async function (params: {
+    token: string;
+    username: string;
+  }): Promise<ResponseOfUserCreate> {
+    const { token, username } = params;
+    const response = await InstanceAxiosUrl.get<ResponseOfUserCreate>(
+      `/users/${username}`,
+      Bearer(token),
+    );
+    return response.data;
+  },
+  save: async function (
+    resource: Resource<ListCreatePayload>,
+  ): Promise<ResponseOfUserCreate> {
+    const { payload } = resource;
+    const response = await InstanceAxiosUrl.put<ResponseOfUserCreate>(
+      "/users",
+      payload,
+    );
+    return response.data;
+  },
 
-export const loginUser = async (userLogin: UserLogin) => {
-  return await InstanceAxiosUrl.post<string>("/users/login", userLogin).then(
-    (res) => res.data,
-  );
-};
-
-export const singupUser = async (user: CreatePayload) => {
-  return await InstanceAxiosUrl.post<string>("/users/singup", user).then(
-    (res) => res.data,
-  );
-};
-
-export const logoutUser = async (token: string) => {
-  return await InstanceAxiosUrl.get<string>("/users/logout", Auth(token)).then(
-    (res) => res.data,
-  );
-};
-
-export const whoami = async (token: string) => {
-  return await InstanceAxiosUrl.get<Objectwhoami>(
-    "/users/whoami",
-    Auth(token),
-  ).then((res) => res.data);
-};
-
-export const getUserByUserName = async (token: string, username: string) => {
-  return await InstanceAxiosUrl.get<Objectwhoami>(
-    `/users/${username}`,
-    Auth(token),
-  ).then((res) => res.data);
+  findOne: async function (params: {
+    token: string;
+  }): Promise<ResponseOfUserCreate> {
+    const { token } = params;
+    return await InstanceAxiosUrl.get<ResponseOfUserCreate>(
+      `/users/Whoami`,
+      Bearer(token),
+    ).then((res) => res.data);
+  },
 };
