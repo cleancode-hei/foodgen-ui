@@ -1,55 +1,30 @@
+import { ListCreateUserPayload, User } from "@/types/user";
 import { InstanceAxiosUrl } from "./axios";
 import { Bearer, Provider, Resource } from "@/types";
 
-export type CreatePayload = {
-  username: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  password: string;
-};
-export type ListCreatePayload = CreatePayload[];
-export type ResponseOfUserCreate = {
-  id: string;
-  username: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  password: string;
-};
-
-export const userProvider: Provider<
-  ListCreatePayload,
-  ResponseOfUserCreate,
-  ResponseOfUserCreate
-> = {
+export const userProvider: Provider<ListCreateUserPayload, User, User> = {
   findMany: async function (params: {
     token: string;
     username: string;
-  }): Promise<ResponseOfUserCreate> {
+  }): Promise<User> {
     const { token, username } = params;
-    const response = await InstanceAxiosUrl.get<ResponseOfUserCreate>(
+    const response = await InstanceAxiosUrl.get<User>(
       `/users/${username}`,
       Bearer(token),
     );
     return response.data;
   },
   save: async function (
-    resource: Resource<ListCreatePayload>,
-  ): Promise<ResponseOfUserCreate> {
+    resource: Resource<ListCreateUserPayload>,
+  ): Promise<User> {
     const { payload } = resource;
-    const response = await InstanceAxiosUrl.put<ResponseOfUserCreate>(
-      "/users",
-      payload,
-    );
+    const response = await InstanceAxiosUrl.put<User>("/users", payload);
     return response.data;
   },
 
-  findOne: async function (params: {
-    token: string;
-  }): Promise<ResponseOfUserCreate> {
+  findOne: async function (params: { token: string }): Promise<User> {
     const { token } = params;
-    return await InstanceAxiosUrl.get<ResponseOfUserCreate>(
+    return await InstanceAxiosUrl.get<User>(
       `/users/Whoami`,
       Bearer(token),
     ).then((res) => res.data);

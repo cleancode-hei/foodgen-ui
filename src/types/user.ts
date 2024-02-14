@@ -6,3 +6,11 @@ export type User = {
   last_name: string;
   email: string;
 };
+export type CreatePayload = {
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+};
+export type ListCreateUserPayload = CreatePayload[];
