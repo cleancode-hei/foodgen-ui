@@ -1,10 +1,6 @@
 import { Bearer, Provider, Resource } from "@/types";
 import { InstanceAxiosUrl } from "./axios";
-import {
-  ListPayloadRicipe,
-  Recipe,
-  RecipeWithIngredient,
-} from "@/types/recipe";
+import { ListPayloadRicipe, RecipeWithIngredient } from "@/types/recipe";
 
 export const recipeProvider: Provider<
   ListPayloadRicipe,
