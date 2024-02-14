@@ -6,3 +6,5 @@ export const auth = yup
     password: yup.string().required(),
   })
   .required();
+
+export type Auth = yup.InferType<typeof auth>;
