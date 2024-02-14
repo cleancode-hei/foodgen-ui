@@ -1,4 +1,4 @@
-import { Auth } from "../validators";
+import { Auth } from ".";
 
 interface Params {
   token: string;
