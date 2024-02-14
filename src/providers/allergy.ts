@@ -8,14 +8,14 @@ export type Response = {
   ingredient_name: string;
 };
 
-export const allergyProvider: Provider<string, Response> = {
+export const allergyProvider: Provider<string, Response, Response[]> = {
   findMany: async function (params: {
     token: string;
     page: number;
     page_size: number;
-  }): Promise<Allergy[]> {
+  }): Promise<Response[]> {
     const { token, page, page_size } = params;
-    const response = await InstanceAxiosUrl.get<Allergy[]>(
+    const response = await InstanceAxiosUrl.get<Response[]>(
       `/allergy?page=${page}&page_size=${page_size}`,
       Bearer(token),
     );
@@ -34,9 +34,9 @@ export const allergyProvider: Provider<string, Response> = {
   findOne: async function (params: {
     token: string;
     id: number;
-  }): Promise<Allergy> {
+  }): Promise<Response[]> {
     const { token, id } = params;
-    return await InstanceAxiosUrl.get<Allergy>(
+    return await InstanceAxiosUrl.get<Response[]>(
       `/allergy/${id}`,
       Bearer(token),
     ).then((res) => res.data);
