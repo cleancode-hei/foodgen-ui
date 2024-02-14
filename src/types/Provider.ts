@@ -13,6 +13,7 @@ export interface Resource<T> {
 }
 
 export type Provider<T, R, P> = {
+  findByOther?: (params: Params) => Promise<P>;
   findMany?: (params: Params) => Promise<P>;
   findOne?: (params: Params) => Promise<P>;
   save?: (resource: Resource<T>) => Promise<R>;
