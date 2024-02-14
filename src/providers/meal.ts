@@ -1,26 +1,37 @@
+import { Bearer, Provider } from "@/types";
 import { InstanceAxiosUrl } from "./axios";
 import { Meal } from "@/types/meal";
-import { Auth } from "@/types";
 
-export const getMealRandom = async (token: string) => {
-  return await InstanceAxiosUrl.get<Meal[]>("/meals", Auth(token)).then(
-    (res) => res.data,
-  );
-};
-
-export const getMealByRating = async (
-  token: string,
-  page: number,
-  page_size: number,
-) => {
-  return await InstanceAxiosUrl.get<Meal[]>(
-    `/meals?page=${page}&page_size${page_size}`,
-    Auth(token),
-  ).then((res) => res.data);
-};
-
-export const getMealByid = async (token: string, id: number) => {
-  return await InstanceAxiosUrl.get<Meal>(`/meals/${id}`, Auth(token)).then(
-    (res) => res.data,
-  );
+export const mealProvider: Provider<string, string, Meal[]> = {
+  findOne: async function (params: {
+    token: string;
+    id: string;
+  }): Promise<Meal[]> {
+    const { token, id } = params;
+    const response = await InstanceAxiosUrl.get<Meal[]>(
+      `/meal/${id}`,
+      Bearer(token),
+    );
+    return response.data;
+  },
+  findByOther: async function (params: {
+    token: string;
+    page: number;
+    page_size: number;
+  }): Promise<Meal[]> {
+    const { token, page, page_size } = params;
+    const response = await InstanceAxiosUrl.get<Meal[]>(
+      `/mealsByRating?page=${page}&page_size=${page_size}`,
+      Bearer(token),
+    );
+    return response.data;
+  },
+  findMany: async function (params: { token: string }): Promise<Meal[]> {
+    const { token } = params;
+    const response = await InstanceAxiosUrl.get<Meal[]>(
+      `/meals`,
+      Bearer(token),
+    );
+    return response.data;
+  },
 };
