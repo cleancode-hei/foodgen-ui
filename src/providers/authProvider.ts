@@ -1,9 +1,10 @@
-import { Auth, Provider } from "@/types";
+import { Provider } from "@/types";
+import { Auth } from "@/validators";
 import axios from "axios";
 
 const API_URL: string = import.meta.env.VITE_API_URL;
 
-export const authProvider: Provider = {
+export const authProvider: Provider<string, string> = {
   login: async (auth: Auth): Promise<void> => {
     const response = await axios.post(`${API_URL}/users/login`, auth);
     if (response.status !== 200) {
