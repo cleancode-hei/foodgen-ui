@@ -1,14 +1,32 @@
-import { Auth } from ".";
+import { auth } from "../validators";
+import { Allergy } from "./allergy";
+import { Ingredient } from "./ingredient";
+import { Meal } from "./meal";
+import { Recipe } from "./recipe";
+import { Region } from "./region";
+import { User } from "./user";
+
+interface Params {
+  token: string;
+  page: number;
+  page_size: number;
+  id: number;
+}
+
+interface Resource {
+  token: string;
+  payload: User | Region | Recipe | Meal | Allergy | Ingredient;
+}
 
 export type Provider = {
-  findMany?: (params: string | number) => Promise<void | unknown>;
-  findOne?: (params: string | number) => Promise<void | unknown>;
-  save?: (resource: unknown) => Promise<void | unknown>;
-  saveMany?: (resources: unknown) => Promise<void | unknown>;
-  update?: (resource: unknown) => Promise<void | unknown>;
-  updateMany?: (resources: unknown) => Promise<void | unknown>;
-  delete?: (resource: unknown) => Promise<void | unknown>;
-  deleteMany?: (resources: unknown) => Promise<void | unknown>;
-  login?: (auth: Auth) => Promise<void | unknown>;
+  findMany?: (params: Params) => Promise<void | unknown>;
+  findOne?: (params: Params) => Promise<void | unknown>;
+  save?: (resource: Resource) => Promise<void | unknown>;
+  saveMany?: (resources: Resource) => Promise<void | unknown>;
+  update?: (resource: Resource) => Promise<void | unknown>;
+  updateMany?: (resources: Resource) => Promise<void | unknown>;
+  delete?: (resource: Resource) => Promise<void | unknown>;
+  deleteMany?: (resources: Resource) => Promise<void | unknown>;
+  login?: (Auth: auth) => Promise<void | unknown>;
   logout?: () => Promise<void | unknown>;
 };
