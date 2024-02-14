@@ -1,3 +1,5 @@
+import { Ingredient } from "./ingredient";
+
 export type Recipe = {
   id: string;
   name: string;
@@ -6,3 +8,8 @@ export type Recipe = {
 
 export type PayloadRecipe = Omit<Recipe, "id">;
 export type ListPayloadRicipe = PayloadRecipe[];
+export type RecipeWithIngredient = {
+  recipe: Recipe;
+} & {
+  ingredient: Ingredient;
+};

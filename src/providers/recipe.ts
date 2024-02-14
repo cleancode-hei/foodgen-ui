@@ -1,15 +1,23 @@
 import { Bearer, Provider, Resource } from "@/types";
 import { InstanceAxiosUrl } from "./axios";
-import { ListPayloadRicipe, Recipe } from "@/types/recipe";
+import {
+  ListPayloadRicipe,
+  Recipe,
+  RecipeWithIngredient,
+} from "@/types/recipe";
 
-export const recipeProvider: Provider<ListPayloadRicipe, Recipe[], Recipe[]> = {
+export const recipeProvider: Provider<
+  ListPayloadRicipe,
+  RecipeWithIngredient[],
+  RecipeWithIngredient[]
+> = {
   findMany: async function (params: {
     token: string;
     page: number;
     page_size: number;
-  }): Promise<Recipe[]> {
+  }): Promise<RecipeWithIngredient[]> {
     const { token, page, page_size } = params;
-    const response = await InstanceAxiosUrl.get<Recipe[]>(
+    const response = await InstanceAxiosUrl.get<RecipeWithIngredient[]>(
       `/recipes?page=${page}&page_size=${page_size}`,
       Bearer(token),
     );
@@ -17,9 +25,9 @@ export const recipeProvider: Provider<ListPayloadRicipe, Recipe[], Recipe[]> = {
   },
   save: async function (
     resource: Resource<ListPayloadRicipe>,
-  ): Promise<Recipe[]> {
+  ): Promise<RecipeWithIngredient[]> {
     const { token, payload } = resource;
-    const response = await InstanceAxiosUrl.put<Recipe[]>(
+    const response = await InstanceAxiosUrl.put<RecipeWithIngredient[]>(
       "/recipes",
       payload,
       Bearer(token),
@@ -30,9 +38,9 @@ export const recipeProvider: Provider<ListPayloadRicipe, Recipe[], Recipe[]> = {
   findOne: async function (params: {
     token: string;
     id: string;
-  }): Promise<Recipe[]> {
+  }): Promise<RecipeWithIngredient[]> {
     const { token, id } = params;
-    return await InstanceAxiosUrl.get<Recipe[]>(
+    return await InstanceAxiosUrl.get<RecipeWithIngredient[]>(
       `/recipes/${id}`,
       Bearer(token),
     ).then((res) => res.data);
