@@ -5,6 +5,7 @@ interface Params {
   page: number;
   page_size: number;
   id: string;
+  username: string;
 }
 
 export interface Resource<T> {
