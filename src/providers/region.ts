@@ -44,9 +44,9 @@ export const regionProvider: Provider<ListPayloadRegion, Region[], Region[]> = {
   delete: async function (params: {
     token: string;
     id: string;
-  }): Promise<Region[]> {
+  }): Promise<string> {
     const { token, id } = params;
-    return await InstanceAxiosUrl.get<Region[]>(
+    return await InstanceAxiosUrl.get<string>(
       `/regions/${id}`,
       Bearer(token),
     ).then((res) => res.data);

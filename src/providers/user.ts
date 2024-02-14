@@ -18,11 +18,6 @@ export type ResponseOfUserCreate = {
   password: string;
 };
 
-export type UserLogin = {
-  email: string;
-  password: string;
-};
-
 export const userProvider: Provider<
   ListCreatePayload,
   ResponseOfUserCreate,
