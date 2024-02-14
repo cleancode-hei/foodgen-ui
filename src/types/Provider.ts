@@ -1,4 +1,4 @@
-import { auth } from "../validators";
+import { Auth } from "../validators";
 import { Allergy } from "./allergy";
 import { Ingredient } from "./ingredient";
 import { Meal } from "./meal";
@@ -13,20 +13,20 @@ interface Params {
   id: number;
 }
 
-interface Resource {
+export interface Resource<T> {
   token: string;
-  payload: User | Region | Recipe | Meal | Allergy | Ingredient;
+  payload: T;
 }
 
-export type Provider = {
+export type Provider<T> = {
   findMany?: (params: Params) => Promise<void | unknown>;
   findOne?: (params: Params) => Promise<void | unknown>;
-  save?: (resource: Resource) => Promise<void | unknown>;
-  saveMany?: (resources: Resource) => Promise<void | unknown>;
-  update?: (resource: Resource) => Promise<void | unknown>;
-  updateMany?: (resources: Resource) => Promise<void | unknown>;
-  delete?: (resource: Resource) => Promise<void | unknown>;
-  deleteMany?: (resources: Resource) => Promise<void | unknown>;
-  login?: (Auth: auth) => Promise<void | unknown>;
+  save?: (resource: Resource<T>) => Promise<T>;
+  saveMany?: (resources: Resource<T>) => Promise<T>;
+  update?: (resource: Resource<T>) => Promise<T>;
+  updateMany?: (resources: Resource<T>) => Promise<T>;
+  delete?: (resource: Resource<T>) => Promise<T>;
+  deleteMany?: (resources: Resource<T>) => Promise<T>;
+  login?: (Auth: Auth) => Promise<void | unknown>;
   logout?: () => Promise<void | unknown>;
 };
