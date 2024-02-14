@@ -1,6 +1,6 @@
 import { Bearer, Provider, Resource } from "@/types";
 import { InstanceAxiosUrl } from "./axios";
-import { Region } from "@/types/region";
+import { ListPayloadRegion, Region } from "@/types/region";
 
 export const regionProvider: Provider<ListPayloadRegion, Region[], Region[]> = {
   findMany: async function (params: {
