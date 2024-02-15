@@ -1,9 +1,11 @@
 import { Bearer, Provider, Resource } from "@/types";
 import { InstanceAxiosUrl } from "./axios";
-import { ListPayloadRicipe, RecipeWithIngredient } from "@/types/recipe";
+import { ListPayloadRecipe, RecipeWithIngredient } from "@/types/recipe";
+import { handleAxiosError } from "@/lib/handleAxiosError";
+import { AxiosError } from "axios";
 
 export const recipeProvider: Provider<
-  ListPayloadRicipe,
+  ListPayloadRecipe,
   RecipeWithIngredient[],
   RecipeWithIngredient[]
 > = {
@@ -13,22 +15,30 @@ export const recipeProvider: Provider<
     page_size: number;
   }): Promise<RecipeWithIngredient[]> {
     const { token, page, page_size } = params;
-    const response = await InstanceAxiosUrl.get<RecipeWithIngredient[]>(
-      `/recipes?page=${page}&page_size=${page_size}`,
-      Bearer(token),
-    );
-    return response.data;
+    try {
+      const response = await InstanceAxiosUrl.get<RecipeWithIngredient[]>(
+        `/recipes?page=${page}&page_size=${page_size}`,
+        Bearer(token),
+      );
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error as AxiosError);
+    }
   },
   save: async function (
-    resource: Resource<ListPayloadRicipe>,
+    resource: Resource<ListPayloadRecipe>,
   ): Promise<RecipeWithIngredient[]> {
     const { token, payload } = resource;
-    const response = await InstanceAxiosUrl.put<RecipeWithIngredient[]>(
-      "/recipes",
-      payload,
-      Bearer(token),
-    );
-    return response.data;
+    try {
+      const response = await InstanceAxiosUrl.put<RecipeWithIngredient[]>(
+        "/recipes",
+        payload,
+        Bearer(token),
+      );
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error as AxiosError);
+    }
   },
 
   findOne: async function (params: {
@@ -36,9 +46,13 @@ export const recipeProvider: Provider<
     id: string;
   }): Promise<RecipeWithIngredient[]> {
     const { token, id } = params;
-    return await InstanceAxiosUrl.get<RecipeWithIngredient[]>(
-      `/recipes/${id}`,
-      Bearer(token),
-    ).then((res) => res.data);
+    try {
+      return await InstanceAxiosUrl.get<RecipeWithIngredient[]>(
+        `/recipes/${id}`,
+        Bearer(token),
+      ).then((res) => res.data);
+    } catch (error) {
+      handleAxiosError(error as AxiosError);
+    }
   },
 };

@@ -7,7 +7,7 @@ export type Recipe = {
 };
 
 export type PayloadRecipe = Omit<Recipe, "id">;
-export type ListPayloadRicipe = PayloadRecipe[];
+export type ListPayloadRecipe = PayloadRecipe[];
 export type RecipeWithIngredient = {
   recipe: Recipe;
 } & {
