@@ -3,6 +3,5 @@ export type Ingredient = {
   name: string;
 };
 
-export type payloadIngredient = Ingredient;
 export type Item = { name: string };
 export type ListIngredient = Item[];
