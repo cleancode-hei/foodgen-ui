@@ -9,11 +9,11 @@ export const ingredientProvider: Provider<
   Ingredient,
   Ingredient[]
 > = {
-  findMany: async function (params: {
+  findMany: async (params: {
     token: string;
     page: number;
     page_size: number;
-  }): Promise<Ingredient[]> {
+  }): Promise<Ingredient[]> => {
     const { token, page, page_size } = params;
     try {
       const response = await API.get<Ingredient[]>(
@@ -25,10 +25,10 @@ export const ingredientProvider: Provider<
       handleAxiosError(error as AxiosError);
     }
   },
-  findOne: async function (params: {
+  findOne: async (params: {
     token: string;
     id: string;
-  }): Promise<Ingredient> {
+  }): Promise<Ingredient> => {
     const { token, id } = params;
     try {
       const response = await API.get<Ingredient>(
@@ -40,9 +40,7 @@ export const ingredientProvider: Provider<
       handleAxiosError(error as AxiosError);
     }
   },
-  save: async function (
-    resource: Resource<ListIngredient>,
-  ): Promise<Ingredient[]> {
+  save: async (resource: Resource<ListIngredient>): Promise<Ingredient[]> => {
     const { token, payload } = resource;
     try {
       const response = await API.put<Ingredient[]>(
