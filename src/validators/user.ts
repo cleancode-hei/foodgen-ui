@@ -7,6 +7,6 @@ export const user = yup
     first_name: yup.string().required("First name is required"),
     last_name: yup.string(),
     email: yup.string().email("Email format is not valid.").required("Email is required."),
-    id: yup.string().required()
+    id: yup.string()
   })
   .required();

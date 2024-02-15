@@ -5,7 +5,7 @@ import { recipe } from "./recipe";
 
 export const meal = yup
   .object({
-    id: yup.string().required(),
+    id: yup.string(),
     name: yup.string().required(),
     region: yup.object<Region>(region).required(),
     recipe: yup.object<Recipe>(recipe).required(),
