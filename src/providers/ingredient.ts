@@ -1,8 +1,4 @@
-import {
-  Ingredient,
-  ListIngredient,
-  payloadIngredient,
-} from "@/types/ingredient";
+import { Ingredient, ListIngredient } from "@/types/ingredient";
 import { Bearer, Provider, Resource } from "@/types";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
@@ -10,7 +6,7 @@ import { InstanceAxiosUrl } from "@/lib/axios";
 
 export const ingredientProvider: Provider<
   ListIngredient,
-  payloadIngredient[],
+  Ingredient,
   Ingredient[]
 > = {
   findMany: async function (params: {
@@ -32,10 +28,10 @@ export const ingredientProvider: Provider<
   findOne: async function (params: {
     token: string;
     id: string;
-  }): Promise<Ingredient[]> {
+  }): Promise<Ingredient> {
     const { token, id } = params;
     try {
-      const response = await InstanceAxiosUrl.get<Ingredient[]>(
+      const response = await InstanceAxiosUrl.get<Ingredient>(
         `/ingredients/${id}`,
         Bearer(token),
       );
@@ -46,10 +42,10 @@ export const ingredientProvider: Provider<
   },
   save: async function (
     resource: Resource<ListIngredient>,
-  ): Promise<payloadIngredient[]> {
+  ): Promise<Ingredient[]> {
     const { token, payload } = resource;
     try {
-      const response = await InstanceAxiosUrl.put<payloadIngredient[]>(
+      const response = await InstanceAxiosUrl.put<Ingredient[]>(
         "/allergy",
         payload,
         Bearer(token),
