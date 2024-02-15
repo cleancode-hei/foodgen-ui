@@ -2,7 +2,7 @@ import { Ingredient, ListIngredient } from "@/types/ingredient";
 import { Bearer, Provider, Resource } from "@/types";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
-import { API } from "@/lib";
+import { api } from "@/lib";
 
 export const ingredientProvider: Provider<
   ListIngredient,
@@ -16,7 +16,7 @@ export const ingredientProvider: Provider<
   }): Promise<Ingredient[]> => {
     const { token, page, page_size } = params;
     try {
-      const response = await API.get<Ingredient[]>(
+      const response = await api.get<Ingredient[]>(
         `/ingredients?page=${page}&page_size=${page_size}`,
         Bearer(token),
       );
@@ -31,7 +31,7 @@ export const ingredientProvider: Provider<
   }): Promise<Ingredient> => {
     const { token, id } = params;
     try {
-      const response = await API.get<Ingredient>(
+      const response = await api.get<Ingredient>(
         `/ingredients/${id}`,
         Bearer(token),
       );
@@ -43,7 +43,7 @@ export const ingredientProvider: Provider<
   save: async (resource: Resource<ListIngredient>): Promise<Ingredient[]> => {
     const { token, payload } = resource;
     try {
-      const response = await API.put<Ingredient[]>(
+      const response = await api.put<Ingredient[]>(
         "/allergy",
         payload,
         Bearer(token),
