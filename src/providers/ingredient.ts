@@ -2,7 +2,7 @@ import { Ingredient, ListIngredient } from "@/types/ingredient";
 import { Bearer, Provider, Resource } from "@/types";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
-import { api } from "@/lib";
+import { api } from "@/lib/Api";
 
 export const ingredientProvider: Provider<
   ListIngredient,
