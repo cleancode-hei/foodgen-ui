@@ -9,22 +9,30 @@ export const regionProvider: Provider<ListPayloadRegion, Region[], Region[]> = {
     page_size: number;
   }): Promise<Region[]> {
     const { token, page, page_size } = params;
-    const response = await InstanceAxiosUrl.get<Region[]>(
-      `/regions?page=${page}&page_size=${page_size}`,
-      Bearer(token),
-    );
-    return response.data;
+    try {
+      const response = await InstanceAxiosUrl.get<Region[]>(
+        `/regions?page=${page}&page_size=${page_size}`,
+        Bearer(token),
+      );
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error as AxiosError);
+    }
   },
   save: async function (
     resource: Resource<ListPayloadRegion>,
   ): Promise<Region[]> {
     const { token, payload } = resource;
-    const response = await InstanceAxiosUrl.put<Region[]>(
-      "/regions",
-      payload,
-      Bearer(token),
-    );
-    return response.data;
+    try {
+      const response = await InstanceAxiosUrl.put<Region[]>(
+        "/regions",
+        payload,
+        Bearer(token),
+      );
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error as AxiosError);
+    }
   },
 
   findOne: async function (params: {
@@ -32,19 +40,27 @@ export const regionProvider: Provider<ListPayloadRegion, Region[], Region[]> = {
     id: string;
   }): Promise<Region[]> {
     const { token, id } = params;
-    return await InstanceAxiosUrl.get<Region[]>(
-      `/regions/${id}`,
-      Bearer(token),
-    ).then((res) => res.data);
+    try {
+      return await InstanceAxiosUrl.get<Region[]>(
+        `/regions/${id}`,
+        Bearer(token),
+      ).then((res) => res.data);
+    } catch (error) {
+      handleAxiosError(error as AxiosError);
+    }
   },
   delete: async function (params: {
     token: string;
     id: string;
   }): Promise<string> {
     const { token, id } = params;
-    return await InstanceAxiosUrl.get<string>(
-      `/regions/${id}`,
-      Bearer(token),
-    ).then((res) => res.data);
+    try {
+      return await InstanceAxiosUrl.get<string>(
+        `/regions/${id}`,
+        Bearer(token),
+      ).then((res) => res.data);
+    } catch (error) {
+      handleAxiosError(error as AxiosError);
+    }
   },
 };
