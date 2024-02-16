@@ -3,7 +3,7 @@ import { ListPayloadRegion, Region } from "@/types/region";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
 import { api } from "@/lib/Api";
-export const regionProvider: Provider<ListPayloadRegion, Region[], Region[]> = {
+export const regionProvider: Provider<ListPayloadRegion, Region, Region[]> = {
   findMany: async (params: {
     token: string;
     page: number;
@@ -34,11 +34,11 @@ export const regionProvider: Provider<ListPayloadRegion, Region[], Region[]> = {
     }
   },
 
-  findOne: async (params: { token: string; id: string }): Promise<Region[]> => {
+  findOne: async (params: { token: string; id: string }): Promise<Region> => {
     const { token, id } = params;
     try {
       return await api
-        .get<Region[]>(`/regions/${id}`, Bearer(token))
+        .get<Region>(`/regions/${id}`, Bearer(token))
         .then((res) => res.data);
     } catch (error) {
       handleAxiosError(error as AxiosError);
