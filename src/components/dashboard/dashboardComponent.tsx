@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Element, ElementProps } from "@/types";
-import "./style.css"
+import "./style.css";
 export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
 
