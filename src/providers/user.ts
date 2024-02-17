@@ -12,7 +12,7 @@ export const UserProvider: Provider<UserPayload[], User, ListOfUser> = {
       const response = await api.put<ListOfUser>(
         "/users",
         payload,
-        Bearer(token)
+        Bearer(token),
       );
       return response.data;
     } catch (error) {
@@ -22,7 +22,7 @@ export const UserProvider: Provider<UserPayload[], User, ListOfUser> = {
   findByOther: async (params: { token: string }): Promise<User> => {
     const { token } = params;
     try {
-      const response = await api.put<User>("/users/whoami", Bearer(token));
+      const response = await api.get<User>("/users/whoami", Bearer(token));
       return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);
