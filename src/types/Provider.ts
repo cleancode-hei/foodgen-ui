@@ -1,14 +1,29 @@
 import { Auth } from ".";
 
-export type Provider = {
-  findMany?: (params: string | number) => Promise<void | unknown>;
-  findOne?: (params: string | number) => Promise<void | unknown>;
-  save?: (resource: unknown) => Promise<void | unknown>;
-  saveMany?: (resources: unknown) => Promise<void | unknown>;
-  update?: (resource: unknown) => Promise<void | unknown>;
-  updateMany?: (resources: unknown) => Promise<void | unknown>;
-  delete?: (resource: unknown) => Promise<void | unknown>;
-  deleteMany?: (resources: unknown) => Promise<void | unknown>;
-  login?: (auth: Auth) => Promise<void | unknown>;
-  logout?: () => Promise<void | unknown>;
+interface Params {
+  token: string;
+  page: number;
+  page_size: number;
+  id: string;
+  username: string;
+}
+
+export interface Resource<T> {
+  token: string;
+  payload: T;
+}
+
+export type Provider<T, R, P> = {
+  findByOther?: (params: Params) => Promise<R> | Promise<P>;
+  findMany?: (params: Params) => Promise<P>;
+  findOne?: (params: Params) => Promise<R> | Promise<P>;
+  save?: (resource: Resource<T>) => Promise<R> | Promise<P>;
+  saveMany?: (resources: Resource<T>) => Promise<R>;
+  update?: (resource: Resource<T>) => Promise<P>;
+  updateMany?: (resources: Resource<T>) => Promise<R>;
+  delete?: (params: Params) => Promise<string>;
+  deleteMany?: (resources: Resource<T>) => Promise<string>;
+  login?: (auth: Auth) => Promise<void>;
+  logout?: () => Promise<void>;
+  signup?: (auth: Auth) => Promise<void>;
 };
