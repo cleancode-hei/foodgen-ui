@@ -3,3 +3,4 @@ export * from "./Provider";
 export * from "./Ingredient";
 export * from "./Recipe";
 export * from "./Region";
+export * from "./dashboardElements";

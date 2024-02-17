@@ -6,6 +6,6 @@ import { ingredient } from "./ingredient";
 export const recipeIngredient = yup
   .object({
     recipe: yup.object<Recipe>(recipe).required(),
-    ingredient: yup.object<Ingredient>(ingredient).required()
+    ingredient: yup.object<Ingredient>(ingredient).required(),
   })
   .required();
