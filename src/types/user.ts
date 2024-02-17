@@ -1,5 +1,3 @@
-import { Allergy } from "./allergy";
-
 export type User = {
   id: string;
   firstname: string;
@@ -7,7 +5,7 @@ export type User = {
   username: string;
   email: string;
   password: string;
-  Allergies: Allergy;
+  Allergies: string[];
   Preference: string[];
 };
 
