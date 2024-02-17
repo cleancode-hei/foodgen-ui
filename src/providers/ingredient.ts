@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Ingredient, ListIngredient } from "@/types/Ingredient";
+=======
+import { Ingredient, ListIngredient } from "@/types/ingredients";
+>>>>>>> 14a07406c1314b893170e7408752076dcaac592c
 import { Bearer, Provider, Resource } from "@/types";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
