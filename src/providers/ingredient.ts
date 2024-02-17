@@ -1,4 +1,4 @@
-import { Ingredient, ListIngredient } from "@/types/ingredient";
+import { Ingredient, ListIngredient } from "@/types/Ingredient";
 import { Bearer, Provider, Resource } from "@/types";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
