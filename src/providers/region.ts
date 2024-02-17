@@ -37,9 +37,9 @@ export const regionProvider: Provider<ListPayloadRegion, Region, Region[]> = {
   findOne: async (params: { token: string; id: string }): Promise<Region> => {
     const { token, id } = params;
     try {
-      return await api
-        .get<Region>(`/regions/${id}`, Bearer(token))
-        .then((res) => res.data);
+      const response = await api.get<Region>(`/regions/${id}`, Bearer(token));
+
+      return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);
     }
@@ -47,9 +47,8 @@ export const regionProvider: Provider<ListPayloadRegion, Region, Region[]> = {
   delete: async (params: { token: string; id: string }): Promise<string> => {
     const { token, id } = params;
     try {
-      return await api
-        .get<string>(`/regions/${id}`, Bearer(token))
-        .then((res) => res.data);
+      const response = await api.get<string>(`/regions/${id}`, Bearer(token));
+      return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);
     }
