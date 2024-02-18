@@ -13,6 +13,12 @@ body {
   border-radius: 12px;
   border: 0;
 }
+._containeR{
+  margin-top: -4%;
+  background-color: rgba(31, 33, 32, 0.48);
+  border-radius: 12px;
+  border: 0;
+}
 ._text {
   font-size: 20px;
 }
@@ -25,6 +31,11 @@ body {
   margin-bottom: 5%;
   background-color: rgba(0, 0, 0, 0.559);
   color: white;
+}
+
+._register {
+  margin-bottom: 3%;
+
 }
 ._input::placeholder {
   font-size: 15px;

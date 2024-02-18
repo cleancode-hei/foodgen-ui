@@ -1,6 +1,6 @@
+import { regionProvider } from "@/providers";
+import { Region } from "@/types";
 import React, { useEffect, useState } from "react";
-import { Region } from "@/types/region";
-import { regionProvider } from "@/providers/region";
 
 const RegionList: React.FC<{
   /* token: string*/

@@ -36,12 +36,13 @@ export const SignUp = () => {
     }
   };
   const handleNext = () => {
-    setStep(2);
+    
+    step == 1 ? setStep(2) : setStep(1);
   };
 
   return (
     <main className="w-full min-h-screen flex justify-center items-center">
-      <Card className="w-[350px] h-[460px] _container">
+      <Card className="w-[350px] h-[420px] _containeR">
       <CardHeader className="w-full flex items-center">
           <Avatar className="w-27 h-27">
             <AvatarImage className="_logo" src="/logo.png" alt="@shadcn" />
@@ -52,12 +53,12 @@ export const SignUp = () => {
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1">
                 {step === 1 && (
-                  <div className="flex flex-col space-y-1">
+                  <div className="flex _register flex-col space-y-1">
                     <input
                       {...register("firstname")}
                       placeholder="First name"
                       type="text"
-                      className="_input py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
+                      className="_input py-1 rounded-xl px-2 "
                       name="firstname"
                     />
 
@@ -65,14 +66,14 @@ export const SignUp = () => {
                       {...register("lastname")}
                       placeholder="Last name"
                       type="text"
-                      className="_input py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
+                      className="_input py-1  px-2 rounded-xl "
                       name="lastname"
                     />
                     <input
                       {...register("username")}
                       placeholder="Username"
                       type="text"
-                      className="_input py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
+                      className="_input py-1 px-2 rounded-xl"
                       name="username"
                     />
                   </div>
@@ -84,24 +85,26 @@ export const SignUp = () => {
                       {...register("email")}
                       placeholder="Email address"
                       type="email"
-                      className="py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
+                      className="_input py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
                       name="email"
                     />
                     <input
                       {...register("password")}
                       placeholder="Password"
                       type="password"
-                      className="py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
+                      className="_input py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
                       name="password"
                     />
-                  </>
-                )}
-              </div>
-            </div>
-            <div className="w-full flex flex-row justify-between mt-10">
+                     <input
+                      {...register("password")}
+                      placeholder=" Confirm password"
+                      type="password"
+                      className="_input py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
+                      name="password"
+                    />
+
               <DialogIngredient text="Preferences" setState={setPreferences} />
               <DialogIngredient text="Allergies" setState={setAllergies} />
-            </div>
             <div className="flex justify-center mt-3">
               <Button
                 type="submit"
@@ -110,6 +113,12 @@ export const SignUp = () => {
                 {isLoading ? "In progress..." : "Sign up"}
               </Button>
             </div>
+                  </>
+                )}
+                <Button onClick={handleNext}>{(step==1)? "Next" : "Precedent" }</Button>
+              </div>
+            </div>
+            
           </form>
           <div className="w-full flex justify-center">
             <Link
