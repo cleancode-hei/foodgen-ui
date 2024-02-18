@@ -7,12 +7,6 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
   const handleElementClick = (element: Element) => {
     setSelectedElement(element);
   };
-
-  /* 
-   const [rightValue, setRightValue] = useState<string>("userInfo");
-   const [leftValue, setLeftValue] = useState<string>("userInfo");
-  */
-
   return (
     <>
       <div className="container">
@@ -20,6 +14,7 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
           <h2>Left</h2>
           {elements.map((element) => (
             <div
+              className="options"
               key={element.name}
               style={{ cursor: "pointer" }}
               onClick={() => handleElementClick(element)}

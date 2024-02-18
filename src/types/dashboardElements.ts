@@ -1,6 +1,6 @@
 export type Element = {
   name: string;
-  content: string;
+  content: React.ReactNode;
 };
 
 export type ElementProps = {
