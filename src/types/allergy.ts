@@ -1,5 +1,5 @@
-import { Ingredient } from "./ingredients";
-import { User } from "./user";
+import { Ingredient } from "./Ingredient";
+import { User } from "./User";
 
 export type Allergy = {
   user: User;

@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { Link } from "@/components";
 
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -76,8 +75,8 @@ export const Login = () => {
           <div className="w-full flex justify-center">
             <Link
               path="sign-up"
-              text="Already have an account ?"
-              className="mt-3 self-end _link"
+              text="Need to create an account ?"
+              className="mt-3 self-end"
             />
           </div>
         </CardContent>

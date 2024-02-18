@@ -1,6 +1,6 @@
+import { ingredientProvider } from "@/providers";
+import { Ingredient } from "@/types";
 import React, { useEffect, useState } from "react";
-import { ingredientProvider } from "@/providers/ingredient";
-import { Ingredient } from "@/types/ingredients";
 
 export const IngredientsList: React.FC<{
   /* token: string*/
