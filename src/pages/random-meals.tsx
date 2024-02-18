@@ -1,8 +1,8 @@
 import { LoadingBoundary } from "@/components/global/suspense";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { MealCard, MealCards } from "@/components/ui/meal-card";
 import { Modal, ModalContent } from "@/components/ui/modal";
-import { Recipe } from "@/components/ui/moremealsinfo";
+import { Recipe } from "@/components/ui/recipes";
 import {
   AvatarPlace,
   Logo,
@@ -12,18 +12,14 @@ import {
   UserName,
 } from "@/components/ui/navbar";
 import { Meal } from "@/types/Meal";
-import { AvatarImage } from "@radix-ui/react-avatar";
-import logo from "../../public/vite.svg"
+import logo from "../../public/vite.svg";
 
 import React, {
-  ReactNode,
-  Suspense,
-  useContext,
   useEffect,
   useState,
 } from "react";
 import { MealProvider } from "@/providers";
-import { MealCard, MealCards } from "@/components/ui/mealcard";
+import { DropDown } from "@/components/ui/dropdown";
 
 export const RandomeMealsPage: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -55,12 +51,7 @@ export const RandomeMealsPage: React.FC = () => {
         <UserInformation>
           <UserName>@username</UserName>
           <AvatarPlace>
-            <Button className="">
-              <Avatar className="bg-[--color-2]">
-                <AvatarImage src={logo} />
-                <AvatarFallback>IO</AvatarFallback>
-              </Avatar>
-            </Button>
+            <DropDown links={[{label:"test", to:"test"}]}></DropDown>
           </AvatarPlace>
         </UserInformation>
       </Navbar>
@@ -81,7 +72,7 @@ export const RandomeMealsPage: React.FC = () => {
           <div className="bg-white p-2 w-[600px] relative rounded-xl overflow-hidden h-[600px]">
             <Button
               onClick={handleClose}
-              className="z-10 absolute right-0 top-0 bg-[--color-1]"
+              className="z-10 shadow-md absolute right-0 top-0 bg-[--color-1]"
             >
               X
             </Button>
@@ -92,7 +83,7 @@ export const RandomeMealsPage: React.FC = () => {
         </ModalContent>
       </Modal>
       <Button
-        className="bg-[--color-1] fixed p-3 bottom-5 right-5 z-20"
+        className="bg-[--color-1] shadow-md fixed p-3 bottom-5 right-5 z-20"
         onClick={() => {
           setRefresh({});
         }}

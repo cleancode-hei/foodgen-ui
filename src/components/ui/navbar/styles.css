@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.dark-part{
-    border-left: 100px solid transparent;
-    border-top: 100px solid black;
-    border-right:400px solid black;
-    border-bottom: 70px solid black;
+.dark-part {
+  border-left: 100px solid transparent;
+  border-top: 100px solid black;
+  border-right: 400px solid black;
+  border-bottom: 70px solid black;
 }

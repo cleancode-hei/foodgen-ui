@@ -9,11 +9,11 @@ export const Navbar = ({
   ...rest
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <nav className={` h-[60px] w-full sticky z-10 p-2 ${className}`} {...rest}>
+    <nav className={` h-[60px] w-full rounded-xl sticky top-0 z-10 p-2 ${className}`} {...rest}>
       <div
-        className={`h-full shadow-xl rounded-xl overflow-hidden w-full bg-[--color-2] relative flex flex-row ${className}`}
+        className={`h-full shadow-xl rounded-xl w-full bg-[--color-2] relative flex flex-row ${className}`}
       >
-        <div className="absolute w-1/4 shadow-xl h-full bg-gray-600 right-0">
+        <div className="absolute w-1/4 shadow-xl rounded-r-xl h-full bg-gray-600 right-0">
         </div>
         {children}
       </div>

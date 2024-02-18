@@ -42,8 +42,8 @@ export const Recipe = ({ meal }: propsType) => {
       ) : (
         <div className="p-3 w-full h-full flex flex-col gap-3 relative">
           <div className="w-full shadow-xl overflow-hidden rounded-lg h-2/6">
-            <div className="w-full h-full bg-gray-600 z-10">
-              <RecipeImage className="w-full h-full" src={meal.image} alt="" />
+            <div className="w-full h-full bg-gray-600 z-10 flex justify-center items-center">
+              <RecipeImage src={meal.image} alt="" />
             </div>
           </div>
           <div className="w-full h-3/6">
@@ -72,6 +72,7 @@ export const Recipe = ({ meal }: propsType) => {
             </div>
           </div>
           <Button
+            disabled
             className="absolute right-4 bottom-4 bg-[--color-1]"
             onClick={handlePdf}
             variant={"secondary"}

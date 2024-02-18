@@ -44,29 +44,29 @@ export const MealCards = ({
 
 export const MealCard = ({ meal, handleOpen }: foodCardProps) => {
   return (
-    <div className="h-[450ox] p-3 xl:w-1/2  w-1/2 ">
+    <div className="h-[450ox] p-3 xl:w-1/2 bg-[weat]  w-1/2 ">
       <div className=" shadow-xl h-full w-full relative rounded-xl">
-       <div className="p-3 w-full h-full flex flex-col gap-5">
-        <div className="w-full h-4/6">
-          <div className="bg-gray-800 shadow-xl h-full w-full rounded-xl overflow-hidden">
-            <MealCardImage src={image} alt="" />
+        <div className="p-3 w-full h-full flex flex-col gap-5">
+          <div className="w-full h-4/6">
+            <div className="bg-gray-600 shadow-xl h-full w-full flex justify-center items-center rounded-xl overflow-hidden">
+              <MealCardImage src={meal.image} alt="" />
+            </div>
+          </div>
+          <div className="h-2/6 flex flex-col gap-3">
+            <MealName>{meal.name}</MealName>
+            <MealRegion>
+              <b>Region :</b> {meal.region_id}
+            </MealRegion>
+          </div>
+          <div>
+            <Button
+              onClick={() => handleOpen(meal)}
+              className="bg-[--color-1] absolute right-4 bottom-4 shadow-md"
+            >
+              recipe
+            </Button>
           </div>
         </div>
-        <div className="h-2/6 flex flex-col gap-3">
-          <MealName>{meal.name}</MealName>
-          <MealRegion>
-            <b>Region :</b> {meal.region_id}
-          </MealRegion>
-        </div>
-        <div>
-          <Button
-            onClick={() => handleOpen(meal)}
-            className="bg-[--color-1] absolute right-4 bottom-4 rounded-md"
-          >
-            recipe
-          </Button>
-        </div>
-      </div>       
       </div>
     </div>
   );
