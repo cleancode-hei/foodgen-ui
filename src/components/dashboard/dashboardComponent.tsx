@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
+import { IngredientsList, Meals, Profile } from "./options";
+import RegionList from "./options/region";
 
 interface Element {
   content: string;
@@ -55,21 +57,31 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
       </div>
       <div className="rightContainer">
          <div className="static fixed">
-    Static
+         Welcome to the Dashboard
    </div>
    <div className="right">
-     
-     <h1>RIGHT</h1>
+
      {selectedElement && (
        <>
          {selectedElement.content === "Profile" && (
            <>
-             <h2>Profile Content</h2>
+          
+             <Profile/>
            </>
          )}
          {selectedElement.content === "Ingredients" && (
            <>
-             <h2>Ingredients Content</h2>
+             <IngredientsList/>
+           </>
+         )}
+           {selectedElement.content === "Meals" && (
+           <>
+             <Meals/>
+           </>
+         )}
+           {selectedElement.content === "Regions" && (
+           <>
+             <RegionList token=''/>
            </>
          )}
        </>

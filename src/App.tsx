@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Dashboard, Home, Login, SignUp } from "./pages";
+import { Dashboard, Login, SignUp } from "./pages";
 import { RandomeMealsPage } from "./pages/random-meals";
 //import { AuthWrapper, PrivateWrapper } from "./components";
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" /*element={<AuthWrapper />}*/>
-        <Route index Component={Home} />
+        <Route index Component={Login} />
       </Route>
       <Route
         path="/login"

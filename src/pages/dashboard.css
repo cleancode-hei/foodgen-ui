@@ -1,8 +1,10 @@
 .static {
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.377);
   margin-left: 26%;
   padding-left: 2%;
-  width: 73%;
+  width: 70%;
+  text-align: center;
+  border-radius: 12px;
 }
 .rightContainer{
   flex: 1;
