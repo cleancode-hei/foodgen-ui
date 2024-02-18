@@ -1,13 +1,13 @@
 import { Auth } from ".";
 
 interface Params {
-  token: string;
+ // token: string;
   page: number;
   page_size: number;
 }
 
 export interface Resource<T> {
-  token: string;
+//  token: string;
   payload: T;
 }
 
@@ -19,7 +19,7 @@ export type Provider<T, R, P> = {
   saveMany?: (resources: Resource<T>) => Promise<R>;
   update?: (resource: Resource<T>) => Promise<P>;
   updateMany?: (resources: Resource<T>) => Promise<R>;
-  delete: (id: string, params: Params) => Promise<string>;
+  delete: (id: string, params?: Params) => Promise<string>;
   deleteMany?: (resources: Resource<T>) => Promise<string>;
   login?: (auth: Auth) => Promise<void>;
   logout?: () => Promise<void>;

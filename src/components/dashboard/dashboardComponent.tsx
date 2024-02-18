@@ -11,7 +11,6 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
     <>
       <div className="container">
         <div className="left">
-          <h2>Left</h2>
           {elements.map((element) => (
             <div
               className="options"
@@ -24,7 +23,6 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
           ))}
         </div>
         <div className="right">
-          <h2>Right</h2>
           {selectedElement && <p>{selectedElement.content}</p>}
         </div>
       </div>

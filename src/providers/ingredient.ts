@@ -10,30 +10,30 @@ export const ingredientProvider: Provider<
   Ingredient[]
 > = {
   findMany: async (params: {
-    token: string;
+    //token: string;
     page: number;
     page_size: number;
   }): Promise<Ingredient[]> => {
-    const { token, page, page_size } = params;
+    const {/* token, page, page_size */} = params;
     try {
       const response = await api.get<Ingredient[]>(
-        `/ingredients?page=${page}&page_size=${page_size}`,
-        Bearer(token),
+        `/ingredients`,
+      //  Bearer(token),
       );
       return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);
     }
   },
-  findOne: async (params: {
-    token: string;
-    id: string;
-  }): Promise<Ingredient> => {
-    const { token, id } = params;
+  findOne: async (id/*, params: {
+   // token: string;
+   // id: string;
+  }*/): Promise<Ingredient> => {
+   // const { /*token, */id } = params;
     try {
       const response = await api.get<Ingredient>(
         `/ingredients/${id}`,
-        Bearer(token),
+       // Bearer(token),
       );
       return response.data;
     } catch (error) {
@@ -41,13 +41,22 @@ export const ingredientProvider: Provider<
     }
   },
   save: async (resource: Resource<ListIngredient>): Promise<Ingredient[]> => {
-    const { token, payload } = resource;
+    const {/* token,*/ payload } = resource;
     try {
       const response = await api.put<Ingredient[]>(
         "/allergy",
         payload,
-        Bearer(token),
+       // Bearer(token),
       );
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error as AxiosError);
+    }
+  },
+  delete: async (id: string, params?: {/* token: string */}): Promise<string> => {
+    //const { /*token*/ } = params;
+    try {
+      const response = await api.get<string>(`/ingredients/${id}`,/* Bearer(token)*/);
       return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);

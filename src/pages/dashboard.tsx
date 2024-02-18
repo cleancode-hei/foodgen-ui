@@ -1,20 +1,25 @@
 import { Element } from "@/types";
 import { DashboardComponent } from "@/components/dashboard/dashboardComponent";
 import RegionList from "@/components/dashboard/options/region";
+import { IngredientsList } from "@/components/dashboard/options";
 
 export const Dashboard = () => {
   const elements: Element[] = [
     {
-      name: "A",
-      content: <p>Content for A</p>,
+      name: "Profile",
+      content: <p>Profile contents</p>,
     },
     {
-      name: "B",
-      content: <>B contents</>,
+      name: "Ingérients",
+      content: <IngredientsList/>
     },
     {
-      name: "C",
-      content: <RegionList token="" />,
+      name: "Meals",
+      content: <>Meals</>,
+    },
+    {
+      name: "Régions",
+      content: <RegionList/>,
     },
   ];
 
