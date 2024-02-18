@@ -3,12 +3,8 @@ import { Region } from "@/types";
 import React, { useEffect, useState } from "react";
 
 const RegionList: React.FC<{
-  /* token: string*/
-}> = (
-  {
-    /* token */
-  },
-) => {
+  token: string;
+}> = ({ token }) => {
   const [regions, setRegions] = useState<Region[]>([]);
   const [newRegionName, setNewRegionName] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,7 +12,6 @@ const RegionList: React.FC<{
 
   useEffect(() => {
     const params = {
-      // token: token,
       page: currentPage,
       page_size: page_size,
     };
@@ -26,23 +21,22 @@ const RegionList: React.FC<{
       .catch((error) =>
         console.error(
           "Une erreur s'est produite lors de la récupération des régions:",
-          error,
-        ),
+          error
+        )
       );
   }, [currentPage]);
 
   async function getAllRegions(params: {
-    //token: string;
     page: number;
     page_size: number;
   }): Promise<Region[]> {
     try {
-      const response = await regionProvider.findMany(params);
+      const response = await regionProvider.findMany(params, token);
       return response;
     } catch (error) {
       console.error(
         "Une erreur s'est produite lors de la récupération des régions:",
-        error,
+        error
       );
       throw error;
     }
@@ -52,35 +46,34 @@ const RegionList: React.FC<{
     if (newRegionName.trim() === "") {
       return;
     }
-
+  
     const newRegion: Region = {
       name: newRegionName,
       id: Math.random().toString(36),
     };
-
+  
     try {
-      await regionProvider.save({
-        payload: [newRegion, ...regions],
-      });
-
+      await regionProvider.saveOrUpdate([newRegion, ...regions], token);
+  
       setRegions([newRegion, ...regions]);
       setNewRegionName("");
     } catch (error) {
       console.error(
         "Une erreur s'est produite lors de la sauvegarde de la région:",
-        error,
+        error
       );
     }
   }
+
   async function deleteRegion(regionId: string) {
     try {
-      await regionProvider.delete(regionId);
+      await regionProvider.delete(regionId,token);
       const updatedRegions = regions.filter((region) => region.id !== regionId);
       setRegions(updatedRegions);
     } catch (error) {
       console.error(
         "Une erreur s'est produite lors de la suppression de la région:",
-        error,
+        error
       );
     }
   }
@@ -116,7 +109,7 @@ const RegionList: React.FC<{
                 deleteRegion(region.id);
               }}
             >
-              ... Supprimer
+              Supprimer
             </button>
           </li>
         ))}
