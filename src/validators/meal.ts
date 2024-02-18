@@ -10,6 +10,6 @@ export const meal = yup
     region: yup.object<Region>(region).required(),
     recipe: yup.object<Recipe>(recipe).required(),
     image: yup.string().required(),
-    download: yup.number().required()
+    download: yup.number().required(),
   })
   .required();

@@ -81,7 +81,7 @@ export const Login = () => {
           <div className="w-full flex justify-center">
             <Link
               path="sign-up"
-              text="Already have an account ?"
+              text="Need to create an account ?"
               className="mt-3 self-end"
             />
           </div>

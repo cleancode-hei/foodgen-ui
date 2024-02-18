@@ -1,35 +1,21 @@
-<<<<<<< HEAD
-import { Ingredient, ListIngredient } from "@/types/Ingredient";
-=======
-import { Ingredient, ListIngredient } from "@/types/ingredients";
->>>>>>> 14a07406c1314b893170e7408752076dcaac592c
-import { Bearer, Provider, Resource } from "@/types";
+import { Ingredient, Pagination } from "@/types";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
-import { api } from "@/lib/Api";
+import { api } from "@/lib";
 
-export const ingredientProvider: Provider<
-  ListIngredient,
-  Ingredient,
-  Ingredient[]
-> = {
-  findMany: async (params: {
-    token: string;
-    page: number;
-    page_size: number;
-  }): Promise<Ingredient[]> => {
-    const { token, page, page_size } = params;
+export const ingredientProvider = {
+  findMany: async (pagination: Pagination): Promise<Ingredient[]> => {
+    const { page, page_size } = pagination;
     try {
       const response = await api.get<Ingredient[]>(
         `/ingredients?page=${page}&page_size=${page_size}`,
-        Bearer(token),
       );
       return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);
     }
   },
-  findOne: async (params: {
+  /*findOne: async (params: {
     token: string;
     id: string;
   }): Promise<Ingredient> => {
@@ -56,5 +42,5 @@ export const ingredientProvider: Provider<
     } catch (error) {
       handleAxiosError(error as AxiosError);
     }
-  },
+  },*/
 };
