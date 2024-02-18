@@ -1,20 +1,19 @@
-import { Provider, Resource } from "@/types";
-import { api } from "@/lib/Api";
+import { api } from "@/lib";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
 import { Bearer } from "@/types";
-import { User, ListOfUser, UserPayload } from "@/types/user";
+import { User } from "@/types";
 
-export const UserProvider: Provider<UserPayload[], User, ListOfUser> = {
-  save: async (resource: Resource<UserPayload[]>): Promise<ListOfUser> => {
-    const { token, payload } = resource;
+export const userProvider = {
+  save: async (user: User): Promise<void> => {
     try {
-      const response = await api.put<ListOfUser>(
-        "/users",
-        payload,
-        Bearer(token),
-      );
-      return response.data;
+      const response = await api.post("/users/signup", user);
+      if (response.status !== 200) {
+        Promise.reject(response.statusText);
+      }
+      const token: string = response.data;
+      sessionStorage.setItem("token", token);
+      Promise.resolve();
     } catch (error) {
       handleAxiosError(error as AxiosError);
     }

@@ -6,9 +6,12 @@ export const user = yup
     firstname: yup.string().required("First name is required"),
     lastname: yup.string().required(),
     username: yup.string().required("Username is required."),
-    email: yup.string().email("Email format is not valid.").required("Email is required."),
+    email: yup
+      .string()
+      .email("Email format is not valid.")
+      .required("Email is required."),
     password: yup.string().required("Password is required"),
-    Allergies: yup.array(yup.string().required()).required(),
-    Preference: yup.array(yup.string().required()).required()
+    //allergies: yup.array(yup.string().required()).required(),
+    //preferences: yup.array(yup.string().required()).required(),
   })
   .required();
