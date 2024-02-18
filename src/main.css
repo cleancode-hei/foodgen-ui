@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-image: url("backg.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+._container {
+  margin-top: -7%;
+  background-color: rgba(31, 33, 32, 0.48);
+  border-radius: 12px;
+  border: 0;
+}
+._text {
+  font-size: 20px;
+}
+._logo {
+  width: 80px;
+  height: 80px;
+}
+._input {
+  height: 45px;
+  margin-bottom: 5%;
+  background-color: rgba(0, 0, 0, 0.559);
+  color: white;
+}
+._input::placeholder {
+  font-size: 15px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+._button {
+  border: solid 1px;
+  border-color: orange;
+  color: black;
+  height: 5vh;
+  width: 14vw;
+  background-color: rgb(222, 135, 21);
+}
+._button:hover {
+  color: white;
+  height: 5vh;
+  width: 10vw;
+}
+._link {
+  color: aliceblue;
+  font-size: 10px;
+  background-color: rgba(23, 24, 24, 0.155);
+  border-radius: 10px;
+}

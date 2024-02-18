@@ -1,9 +1,10 @@
 export type Element = {
   name: string;
-  content: React.ReactNode;
+  content: JSX.Element;
 };
 
 export type ElementProps = {
   elements: Element[];
   selectedElement: Element | null;
+  handleElementClick: (element: Element) => void;
 };

@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { Element, ElementProps } from "@/types";
 import "./style.css";
+
 export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
 
   const handleElementClick = (element: Element) => {
     setSelectedElement(element);
   };
+
   return (
     <>
       <div className="container">
         <div className="left">
           {elements.map((element) => (
             <div
-              className="options"
+              className={`options ${selectedElement === element ? "selected" : ""}`}
               key={element.name}
               style={{ cursor: "pointer" }}
               onClick={() => handleElementClick(element)}
@@ -22,10 +24,17 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
             </div>
           ))}
         </div>
+
         <div className="right">
-          <p>Welcome to the admin space!</p>
-          <div></div>
-          {selectedElement && <p>{selectedElement.content}</p>}
+          {selectedElement && (
+            <div>
+              <p>{selectedElement.content}</p>
+              <iframe
+                src={`${selectedElement.name}`}
+                title={selectedElement.name}
+              />
+            </div>
+          )}
         </div>
       </div>
     </>
