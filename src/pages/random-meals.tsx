@@ -12,7 +12,7 @@ import {
   UserName,
 } from "@/components/ui/navbar";
 import { Meal } from "@/types/Meal";
-import logo from "../../public/vite.svg";
+import logo from "/logo.png";
 
 import React, {
   useEffect,

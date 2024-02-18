@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./button";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger} from "@radix-ui/react-dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import logo from "../../../public/vite.svg";
+import logo from "/logo.png";
 
 type Link = {
     label:string,
