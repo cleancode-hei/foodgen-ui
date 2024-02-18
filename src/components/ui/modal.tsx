@@ -26,16 +26,13 @@ export const ReactPortal = ({
 export const Modal = ({
   children,
   open,
-  handleClose,
 }: {
   children: React.ReactNode;
   open: boolean;
-  handleClose: () => void;
 }) => {
   return (
     <ReactPortal wrapperId="modal-wrapper">
       <div
-        onClick={handleClose}
         className="fixed z-20 justify-center items-center top-0 w-[100vw] h-[100vh] bg-[#343434b7]"
         hidden={!open}
       >

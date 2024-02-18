@@ -11,7 +11,7 @@ export const user = yup
       .email("Email format is not valid.")
       .required("Email is required."),
     password: yup.string().required("Password is required"),
-    //allergies: yup.array(yup.string().required()).required(),
-    //preferences: yup.array(yup.string().required()).required(),
+    first_name: yup.string().required("First name is required"),
+    last_name: yup.string(),
   })
   .required();

@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import {} from "@radix-ui/react-context";
+import "./styles.css";
 import React, { HTMLAttributes, ReactNode } from "react";
 
 export const Navbar = ({
@@ -8,10 +9,12 @@ export const Navbar = ({
   ...rest
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <nav className={`h-[60px] w-full sticky z-10 p-2 ${className}`} {...rest}>
+    <nav className={` h-[60px] w-full sticky z-10 p-2 ${className}`} {...rest}>
       <div
-        className={`h-full rounded-xl overflow-hidden px-2 w-full bg-[--color-2] relative flex flex-row ${className}`}
+        className={`h-full shadow-xl rounded-xl overflow-hidden w-full bg-[--color-2] relative flex flex-row ${className}`}
       >
+        <div className="absolute w-1/4 shadow-xl h-full bg-gray-600 right-0">
+        </div>
         {children}
       </div>
     </nav>
@@ -25,7 +28,7 @@ export const UserInformation = ({
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
-      className={`absolute h-full flex flex-row items-center right-0 bg-gray-300 ${className}`}
+      className={`absolute h-full text-white flex flex-row items-center right-0 ${className}`}
       {...rest}
     >
       <div className="h-full flex flex-row">{children}</div>
@@ -40,7 +43,7 @@ export const LogoPart = ({
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
-      className={`h-full flex items-center right-0 bg-gray-300 ${className}`}
+      className={`h-full px-2 flex items-center right-0 ${className}`}
       {...rest}
     >
       <div>{children}</div>

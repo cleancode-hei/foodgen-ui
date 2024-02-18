@@ -1,6 +1,2 @@
 import React from "react";
-
-
-export const DropDown = (props:React.HTMLAttributes<typeof >) => {
-
-}
+import {} from '@radix-ui/react-dropdown-menu';
