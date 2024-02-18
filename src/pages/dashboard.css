@@ -1,0 +1,34 @@
+.static {
+  background-color: aliceblue;
+  margin-left: 26%;
+  padding-left: 2%;
+  width: 73%;
+}
+.rightContainer{
+  flex: 1;
+}
+.logo {
+  width: 200px;
+  height: 200px;
+}
+.contLogo {
+  background-color: rgba(191, 241, 203, 0.236);
+  align-items: center;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.Img {
+  margin-top: 5px;
+  margin-left: 2%;
+  width: 25px;
+  height: 25px;
+}
+._option {
+  background-color: rgba(30, 153, 46, 0.4);
+  padding: 3% 30%;
+  margin-top: 5%;
+  border: solid 0px;
+}
+._option p {
+  margin-left: 10%;
+}

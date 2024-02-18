@@ -8,11 +8,12 @@ export const regionProvider = {
     pagination: Pagination,
     token: string,
   ): Promise<Region[]> => {
-    const { page, page_size } = pagination;
+    //const { page, page_size } = pagination;
     try {
       const response = await api.get<Region[]>(
-        `/regions?page=${page}&page_size=${page_size}`,
-        Bearer(token),
+        "/regions",
+        //`/regions?page=${page}&page_size=${page_size}`,
+        // Bearer(token),
       );
       return response.data;
     } catch (error) {
@@ -21,7 +22,7 @@ export const regionProvider = {
   },
   saveOrUpdate: async (regions: Region[], token: string): Promise<Region[]> => {
     try {
-      const response = await api.put<Region[]>(
+      const response = await api.post<Region[]>(
         "/regions",
         regions,
         Bearer(token),
@@ -42,7 +43,9 @@ export const regionProvider = {
   },
   delete: async (id: string, token: string): Promise<string> => {
     try {
-      const response = await api.get<string>(`/regions/${id}`, Bearer(token));
+      const response = await api.delete<string>(
+        `/regions/${id}` /* Bearer(token)*/,
+      );
       return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);

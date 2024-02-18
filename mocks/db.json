@@ -3450,14 +3450,6 @@
   ],
   "regions": [
     {
-      "name": "American",
-      "id": "3cafb606-ff11-4ffb-adc0-ef1f8d2d8e76"
-    },
-    {
-      "name": "British",
-      "id": "ba057c7b-db45-4361-8abb-81723238b653"
-    },
-    {
       "name": "Canadian",
       "id": "c05f2773-b939-475f-a366-2ae125c54787"
     },
@@ -3506,10 +3498,6 @@
       "id": "891d480e-7bd3-4c68-b20e-904b2f7e87d9"
     },
     {
-      "name": "Japanese",
-      "id": "cac406be-59e2-42e1-9164-f917f644885d"
-    },
-    {
       "name": "Kenyan",
       "id": "1a02f484-d456-4992-9dea-d56bf569a7cd"
     },
@@ -3538,10 +3526,6 @@
       "id": "c0a791a3-6230-4dc7-b48a-1d8ab3d3c85f"
     },
     {
-      "name": "Spanish",
-      "id": "79911a32-d5c1-45f7-a6b1-d8fc1c5af1a6"
-    },
-    {
       "name": "Thai",
       "id": "e62c187f-9c1f-4a72-930a-ee0273dbdd78"
     },
@@ -3552,14 +3536,6 @@
     {
       "name": "Turkish",
       "id": "b52a9228-2663-4ab4-92ac-f46e8daa469e"
-    },
-    {
-      "name": "Unknown",
-      "id": "1f994127-1817-4886-b563-8ddbfee6a8bc"
-    },
-    {
-      "name": "Vietnamese",
-      "id": "bf152c3e-e688-46eb-b4c2-17666618e8c8"
     }
   ]
 }
