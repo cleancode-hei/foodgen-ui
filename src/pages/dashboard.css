@@ -4,6 +4,9 @@
   padding-left: 2%;
   width: 73%;
 }
+.rightContainer{
+  flex: 1;
+}
 .logo {
   width: 200px;
   height: 200px;

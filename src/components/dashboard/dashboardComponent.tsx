@@ -53,24 +53,31 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
           <Option key={index} element={element} onClick={handleElementClick} />
         ))}
       </div>
-
-      <div className="right">
-        <h1>RIGHT</h1>
-        {selectedElement && (
-          <>
-            {selectedElement.content === "Profile" && (
-              <>
-                <h2>Profile Content</h2>
-              </>
-            )}
-            {selectedElement.content === "Ingredients" && (
-              <>
-                <h2>Ingredients Content</h2>
-              </>
-            )}
-          </>
-        )}
+      <div className="rightContainer">
+         <div className="static fixed">
+    Static
+   </div>
+   <div className="right">
+     
+     <h1>RIGHT</h1>
+     {selectedElement && (
+       <>
+         {selectedElement.content === "Profile" && (
+           <>
+             <h2>Profile Content</h2>
+           </>
+         )}
+         {selectedElement.content === "Ingredients" && (
+           <>
+             <h2>Ingredients Content</h2>
+           </>
+         )}
+       </>
+     )}
+   </div>
       </div>
+  
+     
     </div>
   );
 };
