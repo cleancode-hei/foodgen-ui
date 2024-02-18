@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Dashboard, Home, Login, SignUp } from "./pages";
+import { RandomeMealsPage } from "./pages/random-meals";
 //import { AuthWrapper, PrivateWrapper } from "./components";
 
 function App() {
@@ -21,6 +22,15 @@ function App() {
         path="/sign-up"
         element={
           <SignUp />
+          /*<PrivateWrapper>
+            <SignUp />
+          </PrivateWrapper>*/
+        }
+      />
+      <Route
+        path="/random-meal"
+        element={
+          <RandomeMealsPage />
           /*<PrivateWrapper>
             <SignUp />
           </PrivateWrapper>*/

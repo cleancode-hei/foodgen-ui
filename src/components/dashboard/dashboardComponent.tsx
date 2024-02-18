@@ -1,6 +1,39 @@
 import React, { useState } from "react";
-import { Element, ElementProps } from "@/types";
 import "./style.css";
+
+interface Element {
+  content: string;
+}
+
+interface ElementProps {
+  elements: Element[];
+}
+
+interface OptionProps {
+  element: Element;
+  onClick: (element: Element) => void;
+}
+
+const Option: React.FC<OptionProps> = ({ element, onClick }) => {
+  const handleOptionClick = () => {
+    onClick(element);
+  };
+
+  return (
+    <div
+      onClick={handleOptionClick}
+      style={{ cursor: "pointer" }}
+      className="_option flex"
+    >
+      <img
+        alt={element.content}
+        className="Img"
+        src={`/Dashboard/${element.content.toLowerCase()}.png`}
+      />
+      <p>{element.content}</p>
+    </div>
+  );
+};
 
 export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
@@ -10,33 +43,41 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="left">
-          {elements.map((element) => (
-            <div
-              className={`options ${selectedElement === element ? "selected" : ""}`}
-              key={element.name}
-              style={{ cursor: "pointer" }}
-              onClick={() => handleElementClick(element)}
-            >
-              {element.name}
-            </div>
-          ))}
+    <div className="container">
+      <div className="left">
+        <div className="contLogo flex justify-center items-cente">
+          <img className="logo" src="/logo.png" alt="logo" />
         </div>
 
-        <div className="right">
-          {selectedElement && (
-            <div>
-              <p>{selectedElement.content}</p>
-              <iframe
-                src={`${selectedElement.name}`}
-                title={selectedElement.name}
-              />
-            </div>
-          )}
-        </div>
+        {elements.map((element, index) => (
+          <Option key={index} element={element} onClick={handleElementClick} />
+        ))}
       </div>
-    </>
+      <div className="rightContainer">
+         <div className="static fixed">
+    Static
+   </div>
+   <div className="right">
+     
+     <h1>RIGHT</h1>
+     {selectedElement && (
+       <>
+         {selectedElement.content === "Profile" && (
+           <>
+             <h2>Profile Content</h2>
+           </>
+         )}
+         {selectedElement.content === "Ingredients" && (
+           <>
+             <h2>Ingredients Content</h2>
+           </>
+         )}
+       </>
+     )}
+   </div>
+      </div>
+  
+     
+    </div>
   );
 };
