@@ -5,9 +5,6 @@ export type User = {
   username: string;
   email: string;
   password: string;
-  Allergies: string[];
-  Preference: string[];
+  allergies: string[];
+  preference: string[];
 };
-
-export type UserPayload = Omit<User, "id">;
-export type ListOfUser = User[];

@@ -15,7 +15,7 @@ export const allergyProvider: Provider<string[], Allergy, Allergy[]> = {
     try {
       const response = await api.get<Allergy[]>(
         `/allergy?page=${page}&page_size=${page_size}`,
-        Bearer(token)
+        Bearer(token),
       );
       return response.data;
     } catch (error) {
@@ -28,7 +28,7 @@ export const allergyProvider: Provider<string[], Allergy, Allergy[]> = {
       const response = await api.put<Allergy[]>(
         "/allergy",
         payload,
-        Bearer(token)
+        Bearer(token),
       );
       return response.data;
     } catch (error) {
@@ -44,7 +44,7 @@ export const allergyProvider: Provider<string[], Allergy, Allergy[]> = {
     try {
       const response = await api.get<Allergy[]>(
         `/allergy/${id}`,
-        Bearer(token)
+        Bearer(token),
       );
       return response.data;
     } catch (error) {
