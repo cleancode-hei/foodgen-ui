@@ -41,7 +41,7 @@ export const SignUp = () => {
 
   return (
     <main className="w-full min-h-screen flex justify-center items-center">
-      <Card className="w-[350px] h-[420px] _containeR">
+      <Card className="w-[350px] h-[520px] _containeR">
         <CardHeader className="w-full flex items-center">
           <Avatar className="w-27 h-27">
             <AvatarImage className="_logo" src="/logo.png" alt="@shadcn" />
@@ -113,14 +113,14 @@ export const SignUp = () => {
                     <div className="flex justify-center mt-3">
                       <Button
                         type="submit"
-                        className="py-1 text-[15px] bg-blue-600 hover:bg-blue-800 text-white shadow-md rounded-xl"
+                        className="_buttoN py-1 text-[15px]  text-white shadow-md rounded-xl"
                       >
                         {isLoading ? "In progress..." : "Sign up"}
                       </Button>
                     </div>
                   </>
                 )}
-                <Button onClick={handleNext}>
+                <Button className="btn" onClick={handleNext}>
                   {step == 1 ? "Next" : "Precedent"}
                 </Button>
               </div>
@@ -130,7 +130,7 @@ export const SignUp = () => {
             <Link
               path="login"
               text="Already have an account ?"
-              className="mt-3 self-end"
+              className="mt-3 self-end text-white"
             />
           </div>
         </CardContent>

@@ -59,3 +59,27 @@ body {
   background-color: rgba(23, 24, 24, 0.155);
   border-radius: 10px;
 }
+.btn{
+  background-color: aliceblue;
+  width: 30%;
+  margin-left: 35%;
+  border-radius: 5px;
+  background-color: orange;
+  color: aliceblue;
+  font-size: 15px;
+}
+.btn:hover{
+  border-color: aliceblue;
+  
+}
+._buttoN{
+  border: solid 1px;
+  border-color: orange;
+  color: black;
+  height: 5vh;
+  width: 14vw;
+  background-color: rgb(222, 135, 21);
+}
+._buttoN:hover{
+  background-color: aliceblue;
+}
