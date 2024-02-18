@@ -2,19 +2,25 @@ import React, { useEffect, useState } from "react";
 import { Region } from "@/types/region";
 import { regionProvider } from "@/providers/region";
 
-const RegionList: React.FC<{/* token: string*/ }> = ({/* token */}) => {
+const RegionList: React.FC<{
+  /* token: string*/
+}> = (
+  {
+    /* token */
+  },
+) => {
   const [regions, setRegions] = useState<Region[]>([]);
-  const [newRegionName, setNewRegionName] = useState('');
+  const [newRegionName, setNewRegionName] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const page_size = 10;
 
   useEffect(() => {
     const params = {
-     // token: token,
+      // token: token,
       page: currentPage,
-     page_size: page_size,
+      page_size: page_size,
     };
-  
+
     getAllRegions(params)
       .then((data) => setRegions(data))
       .catch((error) =>
@@ -24,7 +30,7 @@ const RegionList: React.FC<{/* token: string*/ }> = ({/* token */}) => {
         ),
       );
   }, [currentPage]);
-  
+
   async function getAllRegions(params: {
     //token: string;
     page: number;
@@ -43,8 +49,8 @@ const RegionList: React.FC<{/* token: string*/ }> = ({/* token */}) => {
   }
 
   async function saveRegion() {
-    if (newRegionName.trim() === '') {
-      return; 
+    if (newRegionName.trim() === "") {
+      return;
     }
 
     const newRegion: Region = {
@@ -58,9 +64,12 @@ const RegionList: React.FC<{/* token: string*/ }> = ({/* token */}) => {
       });
 
       setRegions([newRegion, ...regions]);
-      setNewRegionName('');
+      setNewRegionName("");
     } catch (error) {
-      console.error("Une erreur s'est produite lors de la sauvegarde de la région:", error);
+      console.error(
+        "Une erreur s'est produite lors de la sauvegarde de la région:",
+        error,
+      );
     }
   }
   async function deleteRegion(regionId: string) {
@@ -69,22 +78,31 @@ const RegionList: React.FC<{/* token: string*/ }> = ({/* token */}) => {
       const updatedRegions = regions.filter((region) => region.id !== regionId);
       setRegions(updatedRegions);
     } catch (error) {
-      console.error("Une erreur s'est produite lors de la suppression de la région:", error);
+      console.error(
+        "Une erreur s'est produite lors de la suppression de la région:",
+        error,
+      );
     }
   }
 
   return (
     <div>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        saveRegion();
-      }}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          saveRegion();
+        }}
+      >
         <input
+          placeholder="Add a new region"
+          className="input"
           type="text"
           value={newRegionName}
           onChange={(e) => setNewRegionName(e.target.value)}
         />
-        <button type="submit">Ajouter</button>
+        <button className="button" type="submit">
+          Ajouter
+        </button>
       </form>
 
       <ul>
@@ -95,9 +113,10 @@ const RegionList: React.FC<{/* token: string*/ }> = ({/* token */}) => {
               className="delete-button"
               onClick={(e) => {
                 e.preventDefault();
-                deleteRegion(region.id)}}
+                deleteRegion(region.id);
+              }}
             >
-             ... Supprimer
+              ... Supprimer
             </button>
           </li>
         ))}

@@ -5,4 +5,5 @@ export type Element = {
 
 export type ElementProps = {
   elements: Element[];
+  selectedElement: Element | null;
 };

@@ -9,12 +9,14 @@ export const regionProvider: Provider<ListPayloadRegion, Region, Region[]> = {
     page: number;
     page_size: number;
   }): Promise<Region[]> => {
-    const { /*token, page, page_size*/ } = params;
+    const {
+      /*token, page, page_size*/
+    } = params;
     try {
       const response = await api.get<Region[]>(
         "/regions",
         //`/regions?page=${page}&page_size=${page_size}`,
-       // Bearer(token),
+        // Bearer(token),
       );
       return response.data;
     } catch (error) {
@@ -27,7 +29,7 @@ export const regionProvider: Provider<ListPayloadRegion, Region, Region[]> = {
       const response = await api.post<Region[]>(
         "/regions",
         payload,
-       // Bearer(token),
+        // Bearer(token),
       );
       return response.data;
     } catch (error) {
@@ -35,19 +37,30 @@ export const regionProvider: Provider<ListPayloadRegion, Region, Region[]> = {
     }
   },
 
-  findOne: async (id: string, params: {/* token: string */}): Promise<Region> => {
-    const {/* token */} = params;
+  findOne: async (
+    id: string,
+    params: {
+      /* token: string */
+    },
+  ): Promise<Region> => {
+    const {
+      /* token */
+    } = params;
     try {
-      const response = await api.get<Region>(`/regions/${id}`,/* Bearer(token)*/);
+      const response = await api.get<Region>(
+        `/regions/${id}` /* Bearer(token)*/,
+      );
       return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);
     }
   },
   delete: async (id: string): Promise<string> => {
-   // const { /*token*/ } = params;
+    // const { /*token*/ } = params;
     try {
-      const response = await api.delete<string>(`/regions/${id}`,/* Bearer(token)*/);
+      const response = await api.delete<string>(
+        `/regions/${id}` /* Bearer(token)*/,
+      );
       return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);

@@ -1,6 +1,3 @@
-export const Meal = ()=>{
-    return(
-        <>
-        </>
-    )
-}
+export const Meal = () => {
+  return <></>;
+};

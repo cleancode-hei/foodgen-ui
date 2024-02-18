@@ -1,13 +1,13 @@
 import { Auth } from ".";
 
 interface Params {
- // token: string;
+  // token: string;
   page: number;
   page_size: number;
 }
 
 export interface Resource<T> {
-//  token: string;
+  //  token: string;
   payload: T;
 }
 

@@ -23,6 +23,8 @@ export const DashboardComponent: React.FC<ElementProps> = ({ elements }) => {
           ))}
         </div>
         <div className="right">
+          <p>Welcome to the admin space!</p>
+          <div></div>
           {selectedElement && <p>{selectedElement.content}</p>}
         </div>
       </div>

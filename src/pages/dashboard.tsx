@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Element } from "@/types";
 import { DashboardComponent } from "@/components/dashboard/dashboardComponent";
 import RegionList from "@/components/dashboard/options/region";
@@ -11,7 +12,7 @@ export const Dashboard = () => {
     },
     {
       name: "Ingérients",
-      content: <IngredientsList/>
+      content: <IngredientsList />,
     },
     {
       name: "Meals",
@@ -19,13 +20,18 @@ export const Dashboard = () => {
     },
     {
       name: "Régions",
-      content: <RegionList/>,
+      content: <RegionList />,
     },
   ];
 
+  const [selectedElement, setSelectedElement] = useState(elements[0]);
+
   return (
     <div>
-      <DashboardComponent elements={elements} />
+      <DashboardComponent
+        elements={elements}
+        selectedElement={selectedElement}
+      />
     </div>
   );
 };

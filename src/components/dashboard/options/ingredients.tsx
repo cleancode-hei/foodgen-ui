@@ -2,24 +2,35 @@ import React, { useEffect, useState } from "react";
 import { ingredientProvider } from "@/providers/ingredient";
 import { Ingredient } from "@/types/ingredients";
 
-export const IngredientsList: React.FC<{/* token: string*/ }> = ({/* token */}) => {
+export const IngredientsList: React.FC<{
+  /* token: string*/
+}> = (
+  {
+    /* token */
+  },
+) => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
 
-  useEffect(() => {
-    getAllIngredients(/*token*/)
-      .then((data) => setIngredients(data))
-      .catch((error) =>
-        console.error(
-          "Une erreur s'est produite lors de la récupération des régions:",
-          error,
-        ),
-      );
-  }, [/*token*/]);
+  useEffect(
+    () => {
+      getAllIngredients(/*token*/)
+        .then((data) => setIngredients(data))
+        .catch((error) =>
+          console.error(
+            "Une erreur s'est produite lors de la récupération des régions:",
+            error,
+          ),
+        );
+    },
+    [
+      /*token*/
+    ],
+  );
 
   async function getAllIngredients(/*token: string*/): Promise<Ingredient[]> {
     try {
       const response = await ingredientProvider.findMany({
-       // token,
+        // token,
         page: 1,
         page_size: 100,
       });
@@ -43,4 +54,3 @@ export const IngredientsList: React.FC<{/* token: string*/ }> = ({/* token */}) 
     </div>
   );
 };
-
