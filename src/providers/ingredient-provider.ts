@@ -1,4 +1,4 @@
-import { Ingredient, Pagination } from "@/types";
+import { Ingredient, Pagination, Bearer } from "@/types";
 import { handleAxiosError } from "@/lib/handleAxiosError";
 import { AxiosError } from "axios";
 import { api } from "@/lib";
@@ -15,11 +15,7 @@ export const ingredientProvider = {
       handleAxiosError(error as AxiosError);
     }
   },
-  /*findOne: async (params: {
-    token: string;
-    id: string;
-  }): Promise<Ingredient> => {
-    const { token, id } = params;
+  findOne: async (id: string, token: string): Promise<Ingredient> => {
     try {
       const response = await api.get<Ingredient>(
         `/ingredients/${id}`,
@@ -30,17 +26,19 @@ export const ingredientProvider = {
       handleAxiosError(error as AxiosError);
     }
   },
-  save: async (resource: Resource<ListIngredient>): Promise<Ingredient[]> => {
-    const { token, payload } = resource;
+  saveOrUpdate: async (
+    ingredients: Ingredient[],
+    token: string,
+  ): Promise<Ingredient[]> => {
     try {
       const response = await api.put<Ingredient[]>(
-        "/allergy",
-        payload,
+        "/ingredients",
+        ingredients,
         Bearer(token),
       );
       return response.data;
     } catch (error) {
       handleAxiosError(error as AxiosError);
     }
-  },*/
+  },
 };
