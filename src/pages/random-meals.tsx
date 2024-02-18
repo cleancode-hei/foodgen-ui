@@ -33,7 +33,7 @@ export const RandomeMealsPage: React.FC = () => {
     setOpen(false);
     setMeal(null);
   };
-  const [meals, setMeals] = useState<[Meal] | null>(null);
+  const [meals, setMeals] = useState<Meal[] | null>(null);
   useEffect(() => {
     console.log("fetch");
     MealProvider.findMany("").then((value) => {
@@ -56,7 +56,7 @@ export const RandomeMealsPage: React.FC = () => {
         </UserInformation>
       </Navbar>
       <MealCards>
-        <LoadingBoundary<[Meal]> wait={meals}>
+        <LoadingBoundary<Meal[]> wait={meals}>
           {meals && (
             <>
             {meals.map((meal, i)=>{
