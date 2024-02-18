@@ -5,8 +5,7 @@ import { useNavigate } from "react-router";
 import { userProvider } from "@/providers";
 import { User } from "@/types";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Label } from "@/components/ui/label";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Link, DialogIngredient } from "@/components";
 

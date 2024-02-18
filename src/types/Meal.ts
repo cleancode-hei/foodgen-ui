@@ -1,5 +1,5 @@
-import { Recipe } from "./recipe";
-import { Region } from "./region";
+import { Recipe } from "./Recipe";
+import { Region } from "./Region";
 
 export type Meal = {
   id: string;
@@ -9,4 +9,3 @@ export type Meal = {
   image: string;
   download: number;
 };
-export type ListOfMeal = Meal[];
