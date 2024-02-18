@@ -35,7 +35,7 @@ export const Dashboard = () => {
 
   return (
     <div>
-      <div className="static">
+      <div className="static fixed">
         <p>Welcome to the admin space!</p>
         {selectedElement && selectedElement.name === "Profile" && (
           <div>{selectedElement.content}</div>
