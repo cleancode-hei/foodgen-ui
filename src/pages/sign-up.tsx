@@ -108,23 +108,23 @@ export const SignUp = () => {
             <div className="flex justify-center mt-3">
               <Button
                 type="submit"
-                className="py-1 text-[15px] bg-blue-600 hover:bg-blue-800 text-white shadow-md rounded-xl"
+                className="py-1 text-[15px] text-white shadow-md _button rounded-xl"
               >
                 {isLoading ? "In progress..." : "Sign up"}
               </Button>
             </div>
                   </>
                 )}
-                <Button onClick={handleNext}>{(step==1)? "Next" : "Precedent" }</Button>
               </div>
             </div>
             
           </form>
-          <div className="w-full flex justify-center">
+          <div className="w-full flex flex-col mt-3 justify-center">
+          <Button className="self-center _button rounded-xl" onClick={handleNext}>{(step==1)? "Next" : "Previous" }</Button>
             <Link
               path="login"
               text="Already have an account ?"
-              className="mt-3 self-end"
+              className="self-auto"
             />
           </div>
         </CardContent>
