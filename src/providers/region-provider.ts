@@ -8,7 +8,7 @@ export const regionProvider = {
     pagination: Pagination,
     token: string,
   ): Promise<Region[]> => {
-    const { page, page_size } = pagination;
+    //const { page, page_size } = pagination;
     try {
       const response = await api.get<Region[]>(
         "/regions",

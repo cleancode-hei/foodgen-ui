@@ -36,14 +36,13 @@ export const SignUp = () => {
     }
   };
   const handleNext = () => {
-    
     step == 1 ? setStep(2) : setStep(1);
   };
 
   return (
     <main className="w-full min-h-screen flex justify-center items-center">
       <Card className="w-[350px] h-[420px] _containeR">
-      <CardHeader className="w-full flex items-center">
+        <CardHeader className="w-full flex items-center">
           <Avatar className="w-27 h-27">
             <AvatarImage className="_logo" src="/logo.png" alt="@shadcn" />
           </Avatar>
@@ -95,7 +94,7 @@ export const SignUp = () => {
                       className="_input py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
                       name="password"
                     />
-                     <input
+                    <input
                       {...register("password")}
                       placeholder=" Confirm password"
                       type="password"
@@ -103,22 +102,29 @@ export const SignUp = () => {
                       name="password"
                     />
 
-              <DialogIngredient text="Preferences" setState={setPreferences} />
-              <DialogIngredient text="Allergies" setState={setAllergies} />
-            <div className="flex justify-center mt-3">
-              <Button
-                type="submit"
-                className="py-1 text-[15px] bg-blue-600 hover:bg-blue-800 text-white shadow-md rounded-xl"
-              >
-                {isLoading ? "In progress..." : "Sign up"}
-              </Button>
-            </div>
+                    <DialogIngredient
+                      text="Preferences"
+                      setState={setPreferences}
+                    />
+                    <DialogIngredient
+                      text="Allergies"
+                      setState={setAllergies}
+                    />
+                    <div className="flex justify-center mt-3">
+                      <Button
+                        type="submit"
+                        className="py-1 text-[15px] bg-blue-600 hover:bg-blue-800 text-white shadow-md rounded-xl"
+                      >
+                        {isLoading ? "In progress..." : "Sign up"}
+                      </Button>
+                    </div>
                   </>
                 )}
-                <Button onClick={handleNext}>{(step==1)? "Next" : "Precedent" }</Button>
+                <Button onClick={handleNext}>
+                  {step == 1 ? "Next" : "Precedent"}
+                </Button>
               </div>
             </div>
-            
           </form>
           <div className="w-full flex justify-center">
             <Link
