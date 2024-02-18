@@ -43,7 +43,7 @@ export const DialogIngredient = ({ text, setState }: DialogIgProps) => {
       <DialogTrigger asChild>
         <Button
           variant="ghost"
-          className="py-1 rounded-xl px-2 bg-slate-50 shadow-md outline-none"
+          className="py-1 rounded-xl px-2 shadow-md outline-none"
           onClick={() => setIsOpen(true)}
         >
           {text}

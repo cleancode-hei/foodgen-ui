@@ -1,29 +1,42 @@
 import { Routes, Route } from "react-router-dom";
-import { Home, Login, SignUp } from "./pages";
-import { AuthWrapper, PrivateWrapper } from "./components";
+import { Dashboard, Login, SignUp } from "./pages";
+import { RandomeMealsPage } from "./pages/random-meals";
+//import { AuthWrapper, PrivateWrapper } from "./components";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<AuthWrapper />}>
-        <Route index Component={Home} />
+      <Route path="/" /*element={<AuthWrapper />}*/>
+        <Route index Component={Login} />
       </Route>
       <Route
         path="/login"
         element={
-          <PrivateWrapper>
+          <Login />
+          /* <PrivateWrapper>
             <Login />
-          </PrivateWrapper>
+          </PrivateWrapper>*/
         }
       />
       <Route
         path="/sign-up"
         element={
-          <PrivateWrapper>
+          <SignUp />
+          /*<PrivateWrapper>
             <SignUp />
-          </PrivateWrapper>
+          </PrivateWrapper>*/
         }
       />
+      <Route
+        path="/random-meal"
+        element={
+          <RandomeMealsPage />
+          /*<PrivateWrapper>
+            <SignUp />
+          </PrivateWrapper>*/
+        }
+      />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
 }
