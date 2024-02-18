@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-1: #fff78a;
+  --color-2: #ffe382;
+  --color-3: #ffad84;
+  --radius: 0.5em;
+}
